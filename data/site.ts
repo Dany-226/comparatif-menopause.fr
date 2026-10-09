@@ -1,0 +1,117 @@
+/** Réglages du site. Tout ce qui change d'une mise à jour à l'autre vit ici. */
+export const site = {
+  nom: "Comparatif Ménopause",
+  url: "https://comparatif-menopause.fr",
+  description:
+    "Comparatifs de compléments alimentaires pour la ménopause, classés sur la transparence, les preuves, le prix par jour et les précautions d'emploi.",
+  /** Date de la dernière mise à jour éditoriale, au format AAAA-MM-JJ. */
+  majLe: "2026-10-09",
+  /**
+   * Signature des pages : le site, pas une personne. Le directeur de la
+   * publication figure dans les mentions légales, où la loi l'exige.
+   * Ne jamais mettre ici un nom, un portrait ou un diplôme inventés.
+   */
+  signature: "Comparatif Ménopause",
+  editeur: "DIGICORPEX SASU",
+  siret: "940 521 719 00010",
+  /** Année de la dernière mise à jour, pour les titres. */
+  annee: "2026",
+};
+
+/** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
+export const historique: { date: string; texte: string }[] = [
+  { date: "2026-10-09", texte: "Première publication : dix formules comparées, prix relevés, preuves vérifiées actif par actif." },
+];
+
+/**
+ * Mentions légales. Une valeur à null s'affiche « à compléter » et bloque la
+ * construction stricte (npm run build:prod).
+ */
+export const legal: Record<string, { libelle: string; valeur: string | null }> = {
+  denomination: { libelle: "Éditeur", valeur: "DIGICORPEX SASU, société par actions simplifiée unipersonnelle" },
+  siret: { libelle: "SIRET", valeur: "940 521 719 00010" },
+  siege: { libelle: "Siège social", valeur: null },
+  capital: { libelle: "Capital social", valeur: null },
+  rcs: { libelle: "Immatriculation", valeur: null },
+  tva: { libelle: "TVA intracommunautaire", valeur: null },
+  directeur: { libelle: "Directeur de la publication", valeur: "Daniel Rollin" },
+  contact: { libelle: "Contact", valeur: null },
+  hebergeur: { libelle: "Hébergeur (nom, adresse, téléphone)", valeur: null },
+};
+
+export type PageSite = {
+  chemin: string;
+  titre: string;
+  /** Titre court, pour les menus et les pastilles. */
+  court: string;
+  resume: string;
+  /** Pour un comparatif : la famille de produits qu'il classe. */
+  usage?: "confort" | "ventre";
+  /** Une page non publiée n'apparaît ni dans les menus ni dans le plan du site. */
+  publiee: boolean;
+};
+
+export const pilier = "/meilleur-complement-alimentaire-menopause/";
+
+/** Les comparatifs, dans l'ordre de publication prévu. */
+export const comparatifs: PageSite[] = [
+  {
+    chemin: pilier,
+    titre: "Meilleur complément alimentaire pour la ménopause",
+    court: "Confort général",
+    resume: "Les formules généralistes, celles que l'on prend pour l'ensemble des symptômes.",
+    usage: "confort",
+    publiee: true,
+  },
+  {
+    chemin: "/complement-alimentaire-ventre-gonfle-menopause/",
+    titre: "Compléments pour le ventre gonflé à la ménopause",
+    court: "Ventre gonflé",
+    resume: "Les formules « ventre plat » vendues en pharmacie et en ligne.",
+    usage: "ventre",
+    publiee: false,
+  },
+  {
+    chemin: "/complement-alimentaire-menopause-prise-de-poids/",
+    titre: "Compléments et prise de poids à la ménopause",
+    court: "Prise de poids",
+    resume: "Les formules qui visent le poids et la silhouette.",
+    publiee: false,
+  },
+];
+
+/** Pages de référence : du contenu de fond, cité par les comparatifs. */
+export const pagesReference: PageSite[] = [
+  {
+    chemin: "/preuves-complements-menopause/",
+    titre: "Le tableau des preuves",
+    court: "Les preuves",
+    resume: "Le niveau de preuve de chaque actif, symptôme par symptôme, avec ses sources.",
+    publiee: true,
+  },
+];
+
+export const pagesInstitutionnelles: PageSite[] = [
+  {
+    chemin: "/comment-nous-classons/",
+    titre: "Comment nous classons",
+    court: "Notre méthode",
+    resume: "La grille, la règle de classement et les sources.",
+    publiee: true,
+  },
+  {
+    chemin: "/politique-affiliation/",
+    titre: "Politique d'affiliation",
+    court: "Politique d'affiliation",
+    resume: "Qui nous rémunère, et ce que cela change.",
+    publiee: true,
+  },
+  { chemin: "/a-propos/", titre: "À propos", court: "À propos", resume: "Qui édite ce site.", publiee: true },
+  {
+    chemin: "/mentions-legales/",
+    titre: "Mentions légales",
+    court: "Mentions légales",
+    resume: "Éditeur, hébergeur, données personnelles.",
+    publiee: true,
+  },
+];
