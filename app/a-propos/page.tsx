@@ -36,8 +36,8 @@ export default function Page() {
           <h2>Qui l'édite</h2>
           <p>
             Le site est édité par {site.editeur}, une société indépendante : elle n'appartient à aucun laboratoire ni à
-            aucun marchand, et ne fabrique aucun produit. Le nom du directeur de la publication figure dans les{" "}
-            <Link href="/mentions-legales/">mentions légales</Link>.
+            aucun marchand, et ne fabrique aucun produit. Son président est le directeur de la publication ; les
+            coordonnées de la société figurent dans les <Link href="/mentions-legales/">mentions légales</Link>.
           </p>
           <p>
             Aucun professionnel de santé ne participe à la rédaction. C'est pourquoi le site ne donne aucun avis médical
