@@ -7,8 +7,9 @@ export const site = {
   /** Date de la dernière mise à jour éditoriale, au format AAAA-MM-JJ. */
   majLe: "2026-10-09",
   /**
-   * Signature des pages : le site, pas une personne. Le directeur de la
-   * publication figure dans les mentions légales, où la loi l'exige.
+   * Signature des pages : le site, pas une personne. Aucun nom de personne
+   * n'apparaît sur le site (choix de l'éditeur) : le directeur de la
+   * publication y est désigné par sa fonction.
    * Ne jamais mettre ici un nom, un portrait ou un diplôme inventés.
    */
   signature: "Comparatif Ménopause",
@@ -30,13 +31,16 @@ export const historique: { date: string; texte: string }[] = [
 export const legal: Record<string, { libelle: string; valeur: string | null }> = {
   denomination: { libelle: "Éditeur", valeur: "DIGICORPEX SASU, société par actions simplifiée unipersonnelle" },
   siret: { libelle: "SIRET", valeur: "940 521 719 00010" },
-  siege: { libelle: "Siège social", valeur: null },
-  capital: { libelle: "Capital social", valeur: null },
-  rcs: { libelle: "Immatriculation", valeur: null },
-  tva: { libelle: "TVA intracommunautaire", valeur: null },
-  directeur: { libelle: "Directeur de la publication", valeur: "Daniel Rollin" },
+  siege: { libelle: "Siège social", valeur: "226 rue Camille Godard, 33000 Bordeaux" },
+  capital: { libelle: "Capital social", valeur: "500 €" },
+  rcs: { libelle: "Immatriculation", valeur: "940 521 719 R.C.S. Bordeaux" },
+  tva: { libelle: "TVA intracommunautaire", valeur: "FR69940521719" },
+  directeur: { libelle: "Directeur de la publication", valeur: "Le président de DIGICORPEX SASU" },
   contact: { libelle: "Contact", valeur: null },
-  hebergeur: { libelle: "Hébergeur (nom, adresse, téléphone)", valeur: null },
+  hebergeur: {
+    libelle: "Hébergeur",
+    valeur: "Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis, +1 650 319 8930",
+  },
 };
 
 export type PageSite = {
