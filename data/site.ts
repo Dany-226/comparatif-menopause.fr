@@ -36,7 +36,7 @@ export const legal: Record<string, { libelle: string; valeur: string | null }> =
   rcs: { libelle: "Immatriculation", valeur: "940 521 719 R.C.S. Bordeaux" },
   tva: { libelle: "TVA intracommunautaire", valeur: "FR69940521719" },
   directeur: { libelle: "Directeur de la publication", valeur: "Le président de DIGICORPEX SASU" },
-  contact: { libelle: "Contact", valeur: null },
+  contact: { libelle: "Contact", valeur: "contact@comparatif-menopause.fr" },
   hebergeur: {
     libelle: "Hébergeur",
     valeur: "Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis, +1 650 319 8930",
