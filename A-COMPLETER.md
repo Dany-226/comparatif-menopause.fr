@@ -6,7 +6,6 @@
 
 | Quoi | Où | Combien |
 |---|---|---|
-| Contact (adresse de courriel ou formulaire) | `data/site.ts`, objet `legal` | 1 |
 | Sérélys Meno : adresse de la boîte de 60 seule (le prix vient de la fiche du lot de deux) et dose de l'extrait dans les essais | `data/produits.ts`, champ `reserves` | 2 |
 | Ménophytea Bouffées de chaleur : lignes de preuve pour le lin et le kudzu | `data/preuves.ts` | 1 |
 
