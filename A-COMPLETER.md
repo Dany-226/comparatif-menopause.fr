@@ -6,7 +6,7 @@
 
 | Quoi | Où | Combien |
 |---|---|---|
-| Siège social, capital, immatriculation, TVA, contact, hébergeur | `data/site.ts`, objet `legal` | 6 |
+| Contact (adresse de courriel ou formulaire) | `data/site.ts`, objet `legal` | 1 |
 | Sérélys Meno : adresse de la boîte de 60 seule (le prix vient de la fiche du lot de deux) et dose de l'extrait dans les essais | `data/produits.ts`, champ `reserves` | 2 |
 | Ménophytea Bouffées de chaleur : lignes de preuve pour le lin et le kudzu | `data/preuves.ts` | 1 |
 
@@ -14,7 +14,7 @@ Une réserve levée se retire de la liste `reserves` du produit.
 
 ## 2. À relire, parce que c'est écrit en ton nom
 
-- **Signature des pages.** Les pages sont signées « Comparatif Ménopause » (`site.signature` dans `data/site.ts`), pas d'un nom de personne. Ton nom n'apparaît plus que dans les mentions légales, comme directeur de la publication, où la loi l'exige. Pour faire signer une personne réelle, il faudra son nom, sa fonction exacte et son accord. Ne jamais y mettre un nom, un portrait ou un diplôme inventés.
+- **Signature des pages et directeur de la publication.** Les pages sont signées « Comparatif Ménopause » (`site.signature` dans `data/site.ts`). Aucun nom de personne n'apparaît sur le site : le directeur de la publication est désigné par sa fonction (« le président de DIGICORPEX SASU »). C'est ton choix ; la loi demande le nom du directeur de la publication, et ce nom est public au registre. Pour le rétablir : champ `legal.directeur`. Ne jamais mettre un nom, un portrait ou un diplôme inventés.
 - **Les prix.** Relevés le 9 octobre 2026 par un outil de lecture automatique. Un contrôle à l'œil des dix fiches est prudent avant la mise en ligne.
 
 ## 3. Choix faits, tous réversibles
