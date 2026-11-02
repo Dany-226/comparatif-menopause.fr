@@ -3,6 +3,12 @@ import Link from "next/link";
 import { produits } from "@/data/produits";
 import { lienProduit } from "@/lib/liens";
 import { NiveauPreuve } from "./NiveauPreuve";
+import { lienActif } from "@/lib/actifs";
+
+function NomActif({ id, nom }: { id: string; nom: string }) {
+  const href = lienActif(id);
+  return href ? <Link href={href} className="underline-offset-4 hover:underline">{nom}</Link> : <>{nom}</>;
+}
 
 /** Les formules du comparatif qui contiennent l'actif à une dose comparable à celle des essais. */
 function DansLeComparatif({ actifId }: { actifId: string }) {
@@ -85,7 +91,7 @@ export function TableauActifs() {
                   {lignes.map((p) => (
                     <tr key={p.id} className="border-t border-trait align-top">
                       <th scope="row" className="py-4 pl-6 pr-3 text-left text-[17px] font-semibold">
-                        {actifs[p.actifId].nom}
+                        <NomActif id={p.actifId} nom={actifs[p.actifId].nom} />
                       </th>
                       <td className="px-3 py-4">
                         <NiveauPreuve niveau={p.niveau} />
@@ -112,7 +118,7 @@ export function TableauActifs() {
                 <li key={p.id} className="flex flex-col gap-2 rounded-[20px] border border-trait bg-white p-[18px]">
                   <div className="flex items-center gap-3">
                     <NiveauPreuve niveau={p.niveau} />
-                    <h3 className="text-[18px] font-semibold leading-tight">{actifs[p.actifId].nom}</h3>
+                    <h3 className="text-[18px] font-semibold leading-tight"><NomActif id={p.actifId} nom={actifs[p.actifId].nom} /></h3>
                   </div>
                   <p className="text-[16px] text-doux">{p.conclusion}</p>
                   {p.doseEssais && <p className="text-[14px] text-discret">Dose des essais : {p.doseEssais.charAt(0).toLowerCase() + p.doseEssais.slice(1)}.</p>}

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { avisPublies, cheminAvis } from "@/data/avis";
+import { actifsAvecPage, cheminActif } from "@/lib/actifs";
 import { comparatifs, pagesInstitutionnelles, pagesReference, site } from "@/data/site";
 
 export const dynamic = "force-static";
@@ -11,5 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/`, lastModified: site.majLe },
     ...pages.map((p) => ({ url: `${site.url}${p.chemin}`, lastModified: site.majLe })),
     ...avisPublies.map((a) => ({ url: `${site.url}${cheminAvis(a)}`, lastModified: a.majLe })),
+    ...actifsAvecPage.map((id) => ({ url: `${site.url}${cheminActif(id)}`, lastModified: site.majLe })),
   ];
 }
