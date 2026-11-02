@@ -2,7 +2,7 @@ import { libellesTypes, sourcesCitees, type TypeSource } from "@/data/preuves";
 import { site } from "@/data/site";
 import { dateLongue } from "@/lib/format";
 
-const ordre: TypeSource[] = ["autorite", "societe", "revue", "essai", "reglement"];
+const ordre: TypeSource[] = ["autorite", "societe", "revue", "essai", "observation", "reglement"];
 
 /** La liste complète des sources, rangées par type. */
 export function Bibliographie() {

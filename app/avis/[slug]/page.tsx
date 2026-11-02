@@ -14,7 +14,8 @@ export function generateStaticParams() {
 function trouver(slug: string) {
   const avis = avisPublies.find((a) => a.slug === slug);
   if (!avis) return null;
-  const classes = classer(produits, "confort");
+  const usage = produits.find((p) => p.id === avis.produit)?.usage ?? "confort";
+  const classes = classer(produits, usage);
   const produit = classes.find((p) => p.id === avis.produit);
   return produit ? { avis, produit, total: classes.length } : null;
 }
