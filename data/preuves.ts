@@ -27,7 +27,7 @@ export const niveaux: Record<Niveau, { titre: string; regle: string }> = {
   },
 };
 
-export type Symptome = "bouffees" | "humeur" | "sommeil" | "global" | "force";
+export type Symptome = "bouffees" | "humeur" | "sommeil" | "global" | "force" | "ballonnements";
 
 export const symptomes: Record<Symptome, string> = {
   bouffees: "Bouffées de chaleur",
@@ -35,6 +35,7 @@ export const symptomes: Record<Symptome, string> = {
   sommeil: "Sommeil",
   global: "Symptômes dans leur ensemble",
   force: "Force musculaire",
+  ballonnements: "Ballonnements et gaz",
 };
 
 export type TypeSource = "autorite" | "societe" | "revue" | "essai" | "reglement";
@@ -107,6 +108,12 @@ const liste: Source[] = [
   s("cohen2014", "essai", "Cohen et al.", 2014, "Efficacy of omega-3 for vasomotor symptoms treatment: a randomized controlled trial", "Revue Menopause 21(4):347-354", "https://divisionofresearch.kaiserpermanente.org/publications/efficacy-of-omega-3-for-vasomotor-symptoms-treatment-a-randomized-controlled-trial"),
   s("korovljev2025", "essai", "Korovljev et al.", 2025, "Essai randomisé de la créatine chez 36 femmes en péri- et post-ménopause", "Journal of the American Nutrition Association", "https://nutrition-evidence.com/article/481576/"),
   s("shirazi2021", "essai", "Shirazi et al.", 2021, "Essai randomisé de la mélisse chez 60 femmes ménopausées ayant un trouble du sommeil", "Revista Brasileira de Ginecologia e Obstetrícia 43(2):126-130", "https://doi.org/10.1055/s-0040-1721857"),
+  // Ventre gonflé et ballonnements
+  s("efsaCharbon2011", "autorite", "EFSA", 2011, "Scientific Opinion on the substantiation of health claims related to activated charcoal and reduction of excessive intestinal gas accumulation", "Autorité européenne de sécurité des aliments (EFSA), question EFSA-Q-2008-2671", "https://www.efsa.europa.eu/en/efsajournal/pub/2049"),
+  s("holtmann2003", "essai", "Holtmann et al.", 2003, "Essai randomisé d'un extrait de feuille d'artichaut chez 247 personnes souffrant de dyspepsie fonctionnelle", "Alimentary Pharmacology & Therapeutics 18(11-12):1099-1105", "https://doi.org/10.1046/j.1365-2036.2003.01767.x"),
+  s("ingrosso2022", "revue", "Ingrosso et al.", 2022, "Méta-analyse de l'huile de menthe poivrée dans l'intestin irritable (10 essais, 1 030 personnes)", "Alimentary Pharmacology & Therapeutics 56(6):932-941", "https://doi.org/10.1111/apt.17179"),
+  s("goodoory2023", "revue", "Goodoory et al.", 2023, "Méta-analyse des probiotiques dans l'intestin irritable (82 essais, 10 332 personnes)", "Gastroenterology 165(5):1206-1218", "https://doi.org/10.1053/j.gastro.2023.07.018"),
+  s("nice2011", "autorite", "NICE", 2011, "Ovarian cancer: recognition and initial management (CG122), standard de qualité QS18, énoncé 1", "National Institute for Health and Care Excellence (Royaume-Uni)", "https://www.nice.org.uk/guidance/qs18/chapter/quality-statement-1-symptoms-and-ca125"),
 ];
 
 export const sources: Record<string, Source> = Object.fromEntries(liste.map((x) => [x.id, x]));
@@ -155,6 +162,19 @@ export const actifs: Record<string, Actif> = {
   lin: { nom: "Graines de lin", vigilance: phyto },
   kudzu: { nom: "Kudzu", vigilance: phyto },
   romarin: { nom: "Romarin" },
+  // Ventre gonflé et ventre plat
+  charbon: { nom: "Charbon actif" },
+  artichaut: { nom: "Artichaut (feuille)" },
+  "menthe-poivree": { nom: "Huile de menthe poivrée" },
+  probiotiques: { nom: "Probiotiques (toutes souches)" },
+  "b-lactis-b420": { nom: "Bifidobacterium lactis B420" },
+  "l-gasseri": { nom: "Lactobacillus gasseri" },
+  "l-plantarum": { nom: "Lactobacillus plantarum" },
+  "s-boulardii": { nom: "Saccharomyces boulardii" },
+  inuline: { nom: "Inuline et fructo-oligosaccharides" },
+  carvi: { nom: "Carvi" },
+  "id-alg": { nom: "Extrait d'algue brune et de pépins de raisin (ID-alG)" },
+  cafeine: { nom: "Caféine" },
 };
 
 export type Preuve = {
@@ -170,6 +190,7 @@ export type Preuve = {
 };
 
 const le = "2026-10-09";
+const le2 = "2026-11-02";
 
 export const preuves: Preuve[] = [
   // Bouffées de chaleur
@@ -201,6 +222,11 @@ export const preuves: Preuve[] = [
   { id: "maca", actifId: "maca", symptome: "global", niveau: "C", doseEssais: "Variable selon les essais", conclusion: "Quatre petits essais favorables, que les auteurs de la revue jugent trop faibles pour conclure.", sources: ["lee2011"], verifieLe: le },
   { id: "vitamine-d", actifId: "vitamine-d", symptome: "global", niveau: "D", doseEssais: "400 UI par jour, avec 1 000 mg de calcium", conclusion: "Autant de symptômes sous supplément que sous placebo chez 34 157 femmes suivies 5,7 ans en moyenne.", sources: ["leblanc2015"], verifieLe: le },
   { id: "b6", actifId: "b6", symptome: "global", niveau: "E", doseEssais: "", conclusion: "Aucun essai randomisé de la vitamine B6 seule trouvé chez des femmes ménopausées.", sources: [], verifieLe: le },
+  // Ballonnements et gaz
+  { id: "charbon", actifId: "charbon", symptome: "ballonnements", niveau: "B", doseEssais: "1 g au moins 30 minutes avant le repas et 1 g juste après", conclusion: "Effet sur les flatulences après le repas jugé établi par l'EFSA en 2011 : c'est la seule allégation de santé autorisée contre les gaz. Aucun essai chez des femmes ménopausées.", sources: ["efsaCharbon2011", "reglement432"], verifieLe: le2 },
+  { id: "artichaut", actifId: "artichaut", symptome: "ballonnements", niveau: "C", doseEssais: "1 920 mg d'extrait de feuille par jour, pendant 6 semaines", conclusion: "Symptômes digestifs réduits face au placebo dans un essai de 244 personnes souffrant de dyspepsie fonctionnelle (troubles digestifs sans cause trouvée). Un seul grand essai, hors ménopause.", sources: ["holtmann2003"], verifieLe: le2 },
+  { id: "menthe-poivree", actifId: "menthe-poivree", symptome: "ballonnements", niveau: "C", doseEssais: "Huile en capsules gastro-résistantes, dose variable selon les essais", conclusion: "Dans l'intestin irritable, symptômes globaux et douleur réduits face au placebo (10 essais, 1 030 personnes), avec des preuves de très faible qualité. Les ballonnements ne sont pas chiffrés à part. Plus d'effets indésirables que sous placebo.", sources: ["ingrosso2022"], verifieLe: le2 },
+  { id: "probiotiques", actifId: "probiotiques", symptome: "ballonnements", niveau: "C", doseEssais: "Variable selon les souches", conclusion: "Dans l'intestin irritable (82 essais, 10 332 personnes), certains mélanges de souches réduisent les ballonnements, avec une très faible certitude. Le résultat dépend de la souche : il ne se transpose pas d'un produit à l'autre.", sources: ["goodoory2023"], verifieLe: le2 },
   // Force musculaire : ce n'est pas un symptôme de la ménopause, mais l'argument revient souvent.
   { id: "creatine-force", actifId: "creatine", symptome: "force", niveau: "B", doseEssais: "Avec un entraînement en résistance d'au moins 24 semaines", conclusion: "Force augmentée chez des femmes ménopausées ou âgées qui s'entraînent. Aucun effet sur la masse musculaire.", sources: ["dossantos2021"], verifieLe: le },
 ];
@@ -225,7 +251,7 @@ export function mentionSources(p: Preuve): string {
 
 /** Toutes les sources citées par les preuves et les mises en garde, plus les textes de référence du site. */
 export function sourcesCitees(): Source[] {
-  const ids = new Set<string>(["has2025", "menopauseSociety2023", "efsa2012", "efsa2015", "anses2025", "reglement432", "nutrivigilance", "dgal"]);
+  const ids = new Set<string>(["nice2011", "has2025", "menopauseSociety2023", "efsa2012", "efsa2015", "anses2025", "reglement432", "nutrivigilance", "dgal"]);
   for (const p of preuves) for (const id of p.sources) ids.add(id);
   for (const a of Object.values(actifs)) for (const id of a.sourcesVigilance ?? []) ids.add(id);
   return [...ids].map((id) => sources[id]);

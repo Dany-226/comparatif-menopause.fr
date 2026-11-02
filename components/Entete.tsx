@@ -4,6 +4,7 @@ import { pilier } from "@/data/site";
 
 const liens = [
   { href: pilier, libelle: "Le comparatif" },
+  { href: "/complement-alimentaire-ventre-gonfle-menopause/", libelle: "Ventre gonflé" },
   { href: "/preuves-complements-menopause/", libelle: "Les preuves" },
   { href: "/a-propos/", libelle: "À propos" },
 ];

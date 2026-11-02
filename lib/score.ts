@@ -20,8 +20,8 @@ export const grille: { cle: CleCritere; titre: string; mesure: string; bareme: s
     cle: "allegation",
     titre: "Allégation autorisée",
     mesure:
-      "La formule peut s'appuyer sur une allégation de santé autorisée dans l'Union européenne. Une seule touche à l'usage : celle de la vitamine B6 sur l'activité hormonale.",
-    bareme: "2 points avec la vitamine B6 à dose suffisante, 1 pour une allégation générale (fatigue, os), 0 sinon.",
+      "La formule peut s'appuyer sur une allégation de santé autorisée dans l'Union européenne qui touche à l'usage : celle de la vitamine B6 sur l'activité hormonale pour le confort général, celle du charbon actif sur les flatulences pour le ventre.",
+    bareme: "2 points pour l'allégation qui touche à l'usage, à dose suffisante ; 1 pour une allégation générale (fatigue, os) ; 0 sinon.",
   },
   {
     cle: "preuves",
@@ -49,7 +49,7 @@ export const noteMax = grille.length * 2;
 /** Les symptômes pris en compte pour le critère « preuves », selon le comparatif. */
 const symptomesComptes: Record<Usage, Symptome[]> = {
   confort: ["bouffees", "humeur", "sommeil", "global"],
-  ventre: [],
+  ventre: ["ballonnements"],
 };
 
 /** Prix par jour, arrondi au centime comme il est affiché. */
