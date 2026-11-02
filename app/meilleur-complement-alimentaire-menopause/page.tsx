@@ -9,7 +9,7 @@ const chapo =
   "Aucun complément n'a l'efficacité démontrée d'un médicament. Nous classons ceux qui existent sur les preuves de leurs actifs, leur prix par jour et leurs précautions d'emploi.";
 
 export const metadata = meta({
-  titre: `Meilleur complément alimentaire ménopause : comparatif ${site.annee}`,
+  titre: `Meilleur complément alimentaire ménopause ${site.annee} : ${nombre} formules comparées`,
   titreComplet: true,
   description: `${nombre} compléments alimentaires pour la ménopause classés sur une grille publique : niveau de preuve de chaque actif, prix par jour, doses et précautions. Sources citées.`,
   chemin: pilier,

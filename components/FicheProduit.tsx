@@ -8,9 +8,21 @@ import { LienMarchand, LienMarchandTexte } from "./LienMarchand";
 import { NiveauPreuve } from "./NiveauPreuve";
 import { VisuelProduit } from "./VisuelProduit";
 import { photosProduits } from "@/data/photos-produits";
+import { avisDe, cheminAvis } from "@/data/avis";
+import Link from "next/link";
 
 /** La fiche détaillée d'un produit : prix, détail de la note, actifs et preuves, pour et contre. */
-export function FicheProduit({ produit, replie = false }: { produit: ProduitClasse; replie?: boolean }) {
+export function FicheProduit({
+  produit,
+  replie = false,
+  lienAvis = true,
+}: {
+  produit: ProduitClasse;
+  replie?: boolean;
+  /** Lien vers la page d'avis du produit, quand elle existe. Faux sur la page d'avis elle-même. */
+  lienAvis?: boolean;
+}) {
+  const avis = lienAvis ? avisDe(produit.id) : undefined;
   const points = pointsParCritere(produit);
   const [marchand, ...autres] = produit.marchands;
   const lignes = produit.actifs.map((a) => ({ ...a, nom: actifs[a.id].nom, preuve: preuvesDe(a.id).filter((p) => p.symptome !== "force")[0] }));
@@ -95,6 +107,11 @@ export function FicheProduit({ produit, replie = false }: { produit: ProduitClas
         </div>
 
         <p className="text-doux">{produit.resume}</p>
+        {avis && (
+          <Link href={cheminAvis(avis)} className="lien -mt-3 self-start py-2 text-[16px] font-semibold">
+            Lire notre avis complet sur {produit.nom}
+          </Link>
+        )}
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-2.5 rounded-[18px] bg-sauge px-[22px] py-5">

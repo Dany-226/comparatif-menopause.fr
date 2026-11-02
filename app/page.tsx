@@ -9,13 +9,13 @@ import { SectionPreuves } from "@/components/SectionPreuves";
 import { TableauComparatif } from "@/components/TableauComparatif";
 import { produits } from "@/data/produits";
 import { sources } from "@/data/preuves";
-import { comparatifs, pilier, site } from "@/data/site";
+import { comparatifs, pagesInstitutionnelles, pagesReference, pilier, site } from "@/data/site";
 import { dateLongue, prix } from "@/lib/format";
 import { meta } from "@/lib/meta";
 import { classer, grille, noteMax } from "@/lib/score";
 
 export const metadata = meta({
-  titre: "Comparatif Ménopause : compléments classés, preuves à l'appui",
+  titre: `Comparatif compléments ménopause : ${produits.filter((p) => p.usage === "confort").length} formules classées et sourcées`,
   titreComplet: true,
   description: site.description,
   chemin: "/",
@@ -25,6 +25,13 @@ const chiffres = [
   { valeur: "80 à 90 %", texte: "des femmes ont des symptômes à la ménopause" },
   { valeur: "20 à 25 %", texte: "ont des troubles sévères" },
   { valeur: "51 ans", texte: "l'âge moyen de la ménopause" },
+];
+
+/** Les cartes « Nos comparatifs » : seules les pages publiées, jamais d'annonce « en préparation ». */
+const cartes = [
+  ...comparatifs.filter((c) => c.publiee),
+  ...pagesReference.filter((p) => p.publiee),
+  ...pagesInstitutionnelles.filter((p) => p.publiee && p.chemin === "/comment-nous-classons/"),
 ];
 
 export default function Accueil() {
@@ -171,53 +178,39 @@ export default function Accueil() {
 
       <section className="conteneur flex flex-col gap-6 pt-12 md:gap-8 md:pt-[80px]">
         <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
-          <h2 className="titre-2">Nos comparatifs</h2>
+          <h2 className="titre-2">Le comparatif et ses preuves</h2>
           <p className="max-w-[30em] text-[16px] text-discret md:text-[17px]">
-            Un comparatif par besoin. Mis à jour le {dateLongue(site.majLe)}.
+            Mis à jour le {dateLongue(site.majLe)}.
           </p>
         </div>
         <div className="grid gap-4 md:gap-6 lg:grid-cols-3">
-          {comparatifs.map((c, i) =>
-            c.publiee ? (
-              <Link
-                key={c.chemin}
-                href={c.chemin}
-                className={`group flex min-h-[260px] flex-col justify-between gap-6 rounded-3xl p-6 md:p-7 ${
-                  i === 0 ? "sombre bg-foret text-white" : "border border-trait bg-white"
-                }`}
-              >
-                <div className={`etiquette ${i === 0 ? "text-citron" : ""}`}>{c.court}</div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="titre-3">{c.titre}</h3>
-                  <p className={`text-[16px] ${i === 0 ? "text-sauge" : "text-doux"}`}>{c.resume}</p>
-                </div>
-                <div className="flex items-center justify-between gap-4">
-                  <span className={`text-[15px] ${i === 0 ? "text-pale" : "text-discret"}`}>
-                    {c.usage ? `${classer(produits, c.usage).length} formules comparées` : "Voir le comparatif"}
-                  </span>
-                  <span
-                    className={`flex size-12 items-center justify-center rounded-full transition-transform group-hover:translate-x-1 ${
-                      i === 0 ? "bg-citron" : "bg-encre"
-                    }`}
-                  >
-                    <FlecheDroite couleur={i === 0 ? "#14241B" : "#FFFFFF"} />
-                  </span>
-                </div>
-              </Link>
-            ) : (
-              <div
-                key={c.chemin}
-                className="flex min-h-[260px] flex-col justify-between gap-6 rounded-3xl border-[1.5px] border-dashed border-pointille p-6 md:p-7"
-              >
-                <div className="etiquette">{c.court}</div>
-                <div className="flex flex-col gap-2">
-                  <h3 className="titre-3">{c.titre}</h3>
-                  <p className="text-[16px] text-doux">{c.resume}</p>
-                </div>
-                <div className="text-[15px] font-medium text-discret">En préparation</div>
+          {cartes.map((c, i) => (
+            <Link
+              key={c.chemin}
+              href={c.chemin}
+              className={`group flex min-h-[260px] flex-col justify-between gap-6 rounded-3xl p-6 md:p-7 ${
+                i === 0 ? "sombre bg-foret text-white" : "border border-trait bg-white"
+              }`}
+            >
+              <div className={`etiquette ${i === 0 ? "text-citron" : ""}`}>{c.court}</div>
+              <div className="flex flex-col gap-2">
+                <h3 className="titre-3">{c.titre}</h3>
+                <p className={`text-[16px] ${i === 0 ? "text-sauge" : "text-doux"}`}>{c.resume}</p>
               </div>
-            ),
-          )}
+              <div className="flex items-center justify-between gap-4">
+                <span className={`text-[15px] ${i === 0 ? "text-pale" : "text-discret"}`}>
+                  {c.usage ? `${classer(produits, c.usage).length} formules comparées` : "Lire la page"}
+                </span>
+                <span
+                  className={`flex size-12 items-center justify-center rounded-full transition-transform group-hover:translate-x-1 ${
+                    i === 0 ? "bg-citron" : "bg-encre"
+                  }`}
+                >
+                  <FlecheDroite couleur={i === 0 ? "#14241B" : "#FFFFFF"} />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

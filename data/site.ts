@@ -5,7 +5,7 @@ export const site = {
   description:
     "Comparatifs de compléments alimentaires pour la ménopause, classés sur la transparence, les preuves, le prix par jour et les précautions d'emploi.",
   /** Date de la dernière mise à jour éditoriale, au format AAAA-MM-JJ. */
-  majLe: "2026-10-09",
+  majLe: "2026-11-02",
   /**
    * Signature des pages : le site, pas une personne. Aucun nom de personne
    * n'apparaît sur le site (choix de l'éditeur) : le directeur de la
@@ -21,6 +21,7 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
+  { date: "2026-11-02", texte: "Première page d'avis détaillé (Manhaé Ménopause), reliée depuis sa fiche." },
   { date: "2026-10-09", texte: "Première publication : dix formules comparées, prix relevés, preuves vérifiées actif par actif." },
 ];
 
