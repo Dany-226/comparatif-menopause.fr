@@ -55,6 +55,11 @@ export const photos = {
     hauteur: 1024,
     alt: "Mains qui prennent des notes au crayon dans un carnet, sur une table en bois",
   },
+  "11-ventre-gonfle-mains": {
+    largeur: 1536,
+    hauteur: 1024,
+    alt: "Femme d'une cinquantaine d'années assise sur un canapé, les deux mains posées sur son ventre gonflé",
+  },
 } satisfies Record<string, PhotoSite>;
 
 export type NomPhoto = keyof typeof photos;
