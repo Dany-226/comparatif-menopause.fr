@@ -63,21 +63,23 @@ export function PageAvis({ avis }: { avis: Avis }) {
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "Review",
-              name: avis.titre(produit, total),
-              url: adresse,
-              inLanguage: "fr-FR",
-              datePublished: avis.majLe,
-              dateModified: avis.majLe,
-              reviewBody: verdict.join(" "),
-              author: { "@type": "Organization", name: site.signature, url: site.url },
-              publisher: { "@type": "Organization", name: site.editeur },
-              reviewRating: { "@type": "Rating", ratingValue: produit.note, bestRating: noteMax, worstRating: 0 },
-              itemReviewed: {
-                "@type": "Product",
-                name: produit.nom,
-                brand: { "@type": "Brand", name: produit.marque },
-                description: produit.composition,
+              // Produit en entité principale, avis imbriqué : c'est la forme que Google valide
+              // pour un avis éditorial (un Product seul exige offers, review ou aggregateRating).
+              "@type": "Product",
+              name: produit.nom,
+              brand: { "@type": "Brand", name: produit.marque },
+              description: produit.composition,
+              review: {
+                "@type": "Review",
+                name: avis.titre(produit, total),
+                url: adresse,
+                inLanguage: "fr-FR",
+                datePublished: avis.majLe,
+                dateModified: avis.majLe,
+                reviewBody: verdict.join(" "),
+                author: { "@type": "Organization", name: site.signature, url: site.url },
+                publisher: { "@type": "Organization", name: site.editeur },
+                reviewRating: { "@type": "Rating", ratingValue: produit.note, bestRating: noteMax, worstRating: 0 },
               },
             },
             {
