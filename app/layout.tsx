@@ -10,7 +10,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.nom, template: `%s | ${site.nom}` },
   description: site.description,
-  icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = { themeColor: "#F2F5EA" };
