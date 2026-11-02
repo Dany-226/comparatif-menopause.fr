@@ -1,4 +1,5 @@
 import type { ProduitClasse } from "@/lib/score";
+import { lienProduit } from "@/lib/liens";
 import { meilleurePreuve, noteMax } from "@/lib/score";
 import { actifs, symptomes } from "@/data/preuves";
 import { prix } from "@/lib/format";
@@ -96,7 +97,7 @@ export function TableauComparatif({
                   <div className="flex items-center gap-4">
                     <VisuelProduit id={p.id} format={p.format} className="size-[68px]" />
                     <div className="min-w-0">
-                      <a href={`${base}#${p.id}`} className="text-[19px] font-semibold leading-snug underline-offset-4 hover:underline">
+                      <a href={lienProduit(p, base)} className="text-[19px] font-semibold leading-snug underline-offset-4 hover:underline">
                         {p.nom}
                       </a>
                       <div className="text-[15px] text-discret">
@@ -139,7 +140,7 @@ export function TableauComparatif({
               <div className="flex items-center gap-3.5">
                 <VisuelProduit id={p.id} format={p.format} rang={p.rang} className="ml-1 mt-1 size-[60px]" />
                 <div className="min-w-0 flex-auto">
-                  <a href={`${base}#${p.id}`} className="text-[18px] font-semibold leading-tight underline-offset-4 hover:underline">
+                  <a href={lienProduit(p, base)} className="text-[18px] font-semibold leading-tight underline-offset-4 hover:underline">
                     {p.nom}
                   </a>
                   <div className="text-[14px] leading-snug text-discret">

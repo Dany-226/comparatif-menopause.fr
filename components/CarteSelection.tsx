@@ -1,4 +1,5 @@
 import type { ProduitClasse } from "@/lib/score";
+import { lienProduit } from "@/lib/liens";
 import { noteMax } from "@/lib/score";
 import { prix } from "@/lib/format";
 import { mention } from "@/lib/marchand";
@@ -27,7 +28,7 @@ export function CarteSelection({ produit, titre, enAvant = false }: { produit: P
       </div>
       <div>
         <h3 className="text-[25px] font-medium leading-[1.15] tracking-[-0.015em] md:text-[28px]">
-          <a href={`#${produit.id}`} className="underline-offset-4 hover:underline">
+          <a href={lienProduit(produit, "")} className="underline-offset-4 hover:underline">
             {produit.nom}
           </a>
         </h3>

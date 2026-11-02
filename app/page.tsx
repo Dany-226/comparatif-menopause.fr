@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { lienProduit } from "@/lib/liens";
 import { BandeauTransparence } from "@/components/BandeauTransparence";
 import { EncadreMedical } from "@/components/EncadreMedical";
 import { Etoile, FlecheBas, FlecheDroite, Pilule } from "@/components/Icones";
@@ -91,7 +92,7 @@ export default function Accueil() {
               className="absolute inset-0"
             />
             <Link
-              href={`${pilier}#${premier.id}`}
+              href={lienProduit(premier)}
               className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-4 rounded-[18px] bg-white/95 p-4 backdrop-blur-sm transition-transform hover:-translate-y-0.5 md:inset-x-auto md:bottom-5 md:right-5 md:w-[340px] md:rounded-[22px] md:p-5"
             >
               <div className="min-w-0">

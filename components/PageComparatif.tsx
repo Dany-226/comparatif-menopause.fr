@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { lienProduit } from "@/lib/liens";
 import { produits, type Usage } from "@/data/produits";
 import { actifs, preuves, sources, sourcesCitees, symptomes } from "@/data/preuves";
 import { comparatifs, historique, site, type PageSite } from "@/data/site";
@@ -95,7 +96,7 @@ export function PageComparatif({ page, usage, titre, chapo, photo, photoPosition
                 </p>
                 <p>
                   Sans l'un ni l'autre, la formule la mieux notée de ce comparatif est{" "}
-                  <a href={`#${sansHormonal.id}`}>{sansHormonal.nom}</a> : {sansHormonal.note}/{noteMax},{" "}
+                  <a href={lienProduit(sansHormonal, "")}>{sansHormonal.nom}</a> : {sansHormonal.note}/{noteMax},{" "}
                   {prix(sansHormonal.parJour)} par jour.
                 </p>
               </>
@@ -404,7 +405,7 @@ export function PageComparatif({ page, usage, titre, chapo, photo, photoPosition
             </li>
             <li>
               <strong className="font-semibold">En tête du classement :</strong>{" "}
-              <a href={`#${premier.id}`} className="lien">
+              <a href={lienProduit(premier, "")} className="lien">
                 {premier.nom}
               </a>
               , {premier.note}/{noteMax}, {prix(premier.parJour)} par jour.
