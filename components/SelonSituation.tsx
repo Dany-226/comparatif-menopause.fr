@@ -1,4 +1,5 @@
 import type { ProduitClasse } from "@/lib/score";
+import { lienProduit } from "@/lib/liens";
 import { noteMax, pointsPreuves } from "@/lib/score";
 import { preuvesDe } from "@/data/preuves";
 import { profils } from "@/lib/selections";
@@ -23,7 +24,7 @@ export function SelonSituation({ classes }: { classes: ProduitClasse[] }) {
           <ol className="mt-auto flex flex-col">
             {profil.produits.map((p) => (
               <li key={p.id} className="border-t border-encre/15 first:border-t-0">
-                <a href={`#${p.id}`} className="group flex items-center justify-between gap-4 py-3">
+                <a href={lienProduit(p, "")} className="group flex items-center justify-between gap-4 py-3">
                   <span className="min-w-0">
                     <span className="block text-[17px] font-semibold leading-snug underline-offset-4 group-hover:underline">
                       {p.nom}

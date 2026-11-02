@@ -107,7 +107,7 @@ export function PageAvis({ avis }: { avis: Avis }) {
           </Link>
           <span aria-hidden="true"> / </span>
           <Link href={pilier} className="underline-offset-4 hover:underline">
-            {comparatif.court}
+            Meilleur complément ménopause
           </Link>
           <span aria-hidden="true"> / </span>
           <span>Avis {produit.nom}</span>

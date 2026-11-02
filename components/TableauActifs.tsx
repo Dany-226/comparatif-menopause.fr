@@ -1,5 +1,27 @@
 import { actifs, preuves, rangNiveau, sources, symptomes, type Symptome } from "@/data/preuves";
+import Link from "next/link";
+import { produits } from "@/data/produits";
+import { lienProduit } from "@/lib/liens";
 import { NiveauPreuve } from "./NiveauPreuve";
+
+/** Les formules du comparatif qui contiennent l'actif à une dose comparable à celle des essais. */
+function DansLeComparatif({ actifId }: { actifId: string }) {
+  const liste = produits.filter((p) => p.usage === "confort" && p.actifs.some((a) => a.id === actifId && a.comparable));
+  if (liste.length === 0) return null;
+  return (
+    <span className="mt-1.5 block text-[14px] text-encre">
+      À dose comparable dans :{" "}
+      {liste.map((p, i) => (
+        <span key={p.id}>
+          {i > 0 && ", "}
+          <Link href={lienProduit(p)} className="underline underline-offset-2">
+            {p.nom}
+          </Link>
+        </span>
+      ))}
+    </span>
+  );
+}
 
 const ordreSymptomes: Symptome[] = ["bouffees", "humeur", "sommeil", "global", "force"];
 
@@ -74,6 +96,7 @@ export function TableauActifs() {
                         {actifs[p.actifId].vigilance && (
                           <span className="mt-1.5 block text-[14px] text-rouille">{actifs[p.actifId].vigilance}</span>
                         )}
+                        <DansLeComparatif actifId={p.actifId} />
                       </td>
                       <td className="py-4 pl-3 pr-6 text-[14px] leading-snug text-doux">
                         <Sources ids={p.sources} />
@@ -94,6 +117,7 @@ export function TableauActifs() {
                   <p className="text-[16px] text-doux">{p.conclusion}</p>
                   {p.doseEssais && <p className="text-[14px] text-discret">Dose des essais : {p.doseEssais.charAt(0).toLowerCase() + p.doseEssais.slice(1)}.</p>}
                   {actifs[p.actifId].vigilance && <p className="text-[14px] text-rouille">{actifs[p.actifId].vigilance}</p>}
+                  <DansLeComparatif actifId={p.actifId} />
                   <p className="text-[14px] text-doux">
                     <Sources ids={p.sources} />
                   </p>
