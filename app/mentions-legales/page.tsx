@@ -47,6 +47,10 @@ export default function Page() {
             Les textes, les tableaux et la grille de notation sont la propriété de l'éditeur. Les noms de produits et de
             marques appartiennent à leurs titulaires et ne sont cités que pour les besoins de la comparaison.
           </p>
+          <p className="!text-[13px] text-discret">
+            Les photographies d'ambiance du site sont des images générées par intelligence artificielle. Les personnes
+            représentées n'existent pas.
+          </p>
         </section>
       </div>
     </>
