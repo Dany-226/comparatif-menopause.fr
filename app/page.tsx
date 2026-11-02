@@ -32,7 +32,7 @@ const cartes = [
   ...comparatifs.filter((c) => c.publiee),
   ...pagesReference.filter((p) => p.publiee),
   ...pagesInstitutionnelles.filter((p) => p.publiee && p.chemin === "/comment-nous-classons/"),
-];
+].slice(0, 3);
 
 export default function Accueil() {
   const classes = classer(produits, "confort");
@@ -178,7 +178,7 @@ export default function Accueil() {
 
       <section className="conteneur flex flex-col gap-6 pt-12 md:gap-8 md:pt-[80px]">
         <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
-          <h2 className="titre-2">Le comparatif et ses preuves</h2>
+          <h2 className="titre-2">Nos comparatifs</h2>
           <p className="max-w-[30em] text-[16px] text-discret md:text-[17px]">
             Mis à jour le {dateLongue(site.majLe)}.
           </p>

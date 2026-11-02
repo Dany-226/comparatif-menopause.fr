@@ -21,6 +21,7 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
+  { date: "2026-11-02", texte: "Nouveau comparatif : compléments pour le ventre gonflé, six formules et quatre lignes de preuve sur les ballonnements." },
   { date: "2026-11-02", texte: "Première page d'avis détaillé (Manhaé Ménopause), reliée depuis sa fiche." },
   { date: "2026-10-09", texte: "Première publication : dix formules comparées, prix relevés, preuves vérifiées actif par actif." },
 ];
@@ -72,9 +73,9 @@ export const comparatifs: PageSite[] = [
     chemin: "/complement-alimentaire-ventre-gonfle-menopause/",
     titre: "Compléments pour le ventre gonflé à la ménopause",
     court: "Ventre gonflé",
-    resume: "Les formules « ventre plat » vendues en pharmacie et en ligne.",
+    resume: "Ballonnements ou ventre plat : ce que contiennent vraiment les formules vendues pour la ménopause.",
     usage: "ventre",
-    publiee: false,
+    publiee: true,
   },
   {
     chemin: "/complement-alimentaire-menopause-prise-de-poids/",

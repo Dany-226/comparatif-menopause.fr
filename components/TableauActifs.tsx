@@ -1,7 +1,7 @@
 import { actifs, preuves, rangNiveau, sources, symptomes, type Symptome } from "@/data/preuves";
 import { NiveauPreuve } from "./NiveauPreuve";
 
-const ordreSymptomes: Symptome[] = ["bouffees", "humeur", "sommeil", "global", "force"];
+const ordreSymptomes: Symptome[] = ["bouffees", "humeur", "sommeil", "global", "ballonnements", "force"];
 
 function Sources({ ids }: { ids: string[] }) {
   if (ids.length === 0) return <span className="text-discret">Recherche sans résultat</span>;
