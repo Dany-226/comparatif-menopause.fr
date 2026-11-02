@@ -10,6 +10,7 @@ import { EncadreMedical } from "./EncadreMedical";
 import { Faq, type Question } from "./Faq";
 import { FicheProduit } from "./FicheProduit";
 import { Pilule } from "./Icones";
+import { Photo } from "./Photo";
 import { JsonLd } from "./JsonLd";
 import { NiveauPreuve } from "./NiveauPreuve";
 import { TableauComparatif } from "./TableauComparatif";
@@ -207,6 +208,15 @@ export function PageVentre() {
             La plupart des compléments « ventre plat » vendus pour la ménopause visent le poids, pas les ballonnements.
             Un seul actif a une allégation autorisée contre les gaz : le charbon actif, à la bonne dose.
           </p>
+        </div>
+        <div className="relative aspect-[3/2] overflow-hidden rounded-[22px] bg-photo md:aspect-[16/9] md:rounded-[28px]">
+          <Photo
+            nom="11-ventre-gonfle-mains"
+            sizes="(min-width: 1280px) 1200px, 100vw"
+            prioritaire
+            position="50% 40%"
+            className="absolute inset-0"
+          />
         </div>
         <nav aria-label="Sommaire" className="flex flex-wrap gap-2">
           {sommaire.map((s) => (
