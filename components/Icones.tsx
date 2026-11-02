@@ -1,10 +1,14 @@
 type Props = { taille?: number; couleur?: string; className?: string };
 
+/** Logo : l'échelle des preuves. Cinq barres que l'on compare, une seule mise en avant. */
 export function Logo({ taille = 34 }: { taille?: number }) {
   return (
-    <svg width={taille} height={taille} viewBox="0 0 34 34" fill="none" aria-hidden="true">
-      <circle cx="13" cy="17" r="10" stroke="#1F3A2B" strokeWidth="2" />
-      <circle cx="21" cy="17" r="10" fill="#D6F15B" fillOpacity="0.85" stroke="#1F3A2B" strokeWidth="2" />
+    <svg width={Math.round(taille * 1.15)} height={taille} viewBox="0 0 46 40" fill="none" aria-hidden="true">
+      <rect x="0" y="22" width="7" height="18" rx="3.5" fill="#1F3A2B" />
+      <rect x="9.5" y="16" width="7" height="24" rx="3.5" fill="#1F3A2B" />
+      <rect x="19" y="9" width="7" height="31" rx="3.5" fill="#D6F15B" stroke="#1F3A2B" strokeWidth="2" />
+      <rect x="28.5" y="16" width="7" height="24" rx="3.5" fill="#1F3A2B" />
+      <rect x="38" y="22" width="7" height="18" rx="3.5" fill="#1F3A2B" />
     </svg>
   );
 }

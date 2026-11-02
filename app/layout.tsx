@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.nom, template: `%s | ${site.nom}` },
   description: site.description,
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
 };
 
 export const viewport: Viewport = { themeColor: "#F2F5EA" };
