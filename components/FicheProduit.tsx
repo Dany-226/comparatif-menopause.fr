@@ -9,6 +9,7 @@ import { NiveauPreuve } from "./NiveauPreuve";
 import { VisuelProduit } from "./VisuelProduit";
 import { photosProduits } from "@/data/photos-produits";
 import { avisDe, cheminAvis } from "@/data/avis";
+import { lienActif } from "@/lib/actifs";
 import Link from "next/link";
 
 /** La fiche détaillée d'un produit : prix, détail de la note, actifs et preuves, pour et contre. */
@@ -182,7 +183,7 @@ export function FicheProduit({
                     )}
                     <div className="min-w-0">
                       <div>
-                        <strong className="font-semibold">{a.nom}</strong>, {a.dose}
+                        <strong className="font-semibold">{lienActif(a.id) ? <Link href={lienActif(a.id)!} className="underline-offset-4 hover:underline">{a.nom}</Link> : a.nom}</strong>, {a.dose}
                         {a.preuve && <span className="text-discret"> · {symptomes[a.preuve.symptome].toLowerCase()}</span>}
                       </div>
                       <div className="text-[15px] text-doux">

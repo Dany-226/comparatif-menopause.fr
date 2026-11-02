@@ -134,6 +134,58 @@ export const avis: Avis[] = [
       },
     ],
   },
+  {
+    produit: "fleurance-capital-feminite",
+    slug: "capital-feminite-fleurance",
+    publiee: true,
+    majLe: "2026-11-02",
+    requete: "capital féminité avis",
+    titre: (p, total) => `Capital Féminité (Fleurance) : notre avis (${p.note}/10, ${p.rang === 1 ? "1er" : `${p.rang}e`} sur ${total})`,
+    description: (p) =>
+      `Avis sur Capital Féminité Jour et Nuit de Fleurance Nature : isoflavones de soja à la dose des études, ${prix(p.parJour)} par jour, précautions. Ce que l'on peut en attendre.`,
+    verdict: (p, total) => [
+      `Capital Féminité Jour et Nuit obtient ${p.note}/10 et se classe ${p.rang === 1 ? "premier" : `${p.rang}e`} sur ${total} dans notre comparatif. C'est la seule formule qui réunit un actif étudié à la dose des essais, une étiquette complète, la vitamine B6 et un prix de ${prix(p.parJour)} par jour.`,
+      "Son actif principal, les isoflavones de soja, est dosé à 50 mg par jour, proche de la dose médiane des essais (54 mg). L'effet mesuré est modeste : environ 20 % de bouffées de chaleur en moins face au placebo dans une méta-analyse, moins d'une bouffée par jour dans une autre. La revue Cochrane ne juge pas ces preuves concluantes.",
+      "La formule contient des phyto-œstrogènes (soja, houblon). Elle est déconseillée en cas d'antécédent personnel ou familial de cancer du sein : dans ce cas, regardez les formules sans phyto-œstrogènes du classement.",
+    ],
+    pourQui: [
+      "Vos bouffées de chaleur sont votre principale gêne",
+      "Vous voulez un actif étudié, à la dose des études, pour moins de 0,50 € par jour",
+      "Vous n'avez pas d'antécédent personnel ou familial de cancer du sein",
+    ],
+    aEviter: [
+      "Vous avez, ou avez eu, un cancer du sein, ou un antécédent dans votre famille",
+      "Vous cherchez un effet comparable à celui d'un traitement hormonal : aucun complément ne l'apporte",
+      "Votre gêne principale est le moral ou le sommeil : d'autres actifs y ont été étudiés",
+    ],
+    questions: (p) => [
+      {
+        question: "Capital Féminité est-il efficace contre les bouffées de chaleur ?",
+        paragraphes: [
+          "Son actif principal, les isoflavones de soja, est à une dose comparable à celle des essais. Dans une méta-analyse de 17 essais, la fréquence des bouffées de chaleur baisse de 20,6 % face au placebo ; dans une autre, d'environ 0,8 bouffée par jour.",
+          "L'effet est donc modeste, et la revue Cochrane de 2013 ne juge pas ces preuves concluantes. Les autres actifs de la formule (sauge, houblon, vitamine E) ne sont pas à une dose comparable à celle des études.",
+        ],
+      },
+      {
+        question: "Capital Féminité contient-il des hormones ?",
+        paragraphes: [
+          "Aucun complément alimentaire ne contient d'hormones. Capital Féminité contient des phyto-œstrogènes : des isoflavones de soja et du houblon, des composés végétaux qui imitent faiblement les œstrogènes.",
+        ],
+      },
+      {
+        question: "Peut-on prendre Capital Féminité après un cancer du sein ?",
+        paragraphes: [
+          "C'est déconseillé : les compléments de phyto-œstrogènes sont déconseillés en cas d'antécédent personnel ou familial de cancer du sein. Parlez-en à l'équipe qui vous suit ; les formules sans phyto-œstrogènes ni actée à grappes sont signalées dans notre classement.",
+        ],
+      },
+      {
+        question: "Combien coûte Capital Féminité ?",
+        paragraphes: [
+          `${prix(p.prix)} la boîte de 60 comprimés au dernier relevé, soit ${prix(p.parJour)} par jour à raison d'un comprimé le matin et d'un le soir.`,
+        ],
+      },
+    ],
+  },
 ];
 
 export const avisPublies = avis.filter((a) => a.publiee);
