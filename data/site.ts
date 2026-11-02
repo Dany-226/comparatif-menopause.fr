@@ -21,6 +21,7 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
+  { date: "2026-11-02", texte: "Nouvelle page d'information sur le ventre gonflé et avis détaillé sur Ménophytea Silhouette Ventre Plat." },
   { date: "2026-11-02", texte: "Nouveau comparatif : compléments pour le ventre gonflé, six formules et quatre lignes de preuve sur les ballonnements." },
   { date: "2026-11-02", texte: "Première page d'avis détaillé (Manhaé Ménopause), reliée depuis sa fiche." },
   { date: "2026-10-09", texte: "Première publication : dix formules comparées, prix relevés, preuves vérifiées actif par actif." },
@@ -88,6 +89,13 @@ export const comparatifs: PageSite[] = [
 
 /** Pages de référence : du contenu de fond, cité par les comparatifs. */
 export const pagesReference: PageSite[] = [
+  {
+    chemin: "/ventre-gonfle-menopause/",
+    titre: "Ventre gonflé à la ménopause : causes, solutions, quand consulter",
+    court: "Ventre gonflé : causes",
+    resume: "Pourquoi le ventre gonfle, gaz ou graisse, ce qui a fait ses preuves et quand consulter.",
+    publiee: true,
+  },
   {
     chemin: "/preuves-complements-menopause/",
     titre: "Le tableau des preuves",

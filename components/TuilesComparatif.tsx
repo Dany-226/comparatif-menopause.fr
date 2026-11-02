@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { lienProduit } from "@/lib/liens";
 import type { ProduitClasse } from "@/lib/score";
 import { noteMax } from "@/lib/score";
 import type { NomPhoto } from "@/data/photos";
@@ -50,7 +51,7 @@ export function TuilesComparatif({
         <div className="flex items-center justify-between gap-3">
           <div className="etiquette">N° 1 · meilleure note</div>
           <a
-            href={`#${premier.id}`}
+            href={lienProduit(premier, "")}
             aria-label={`Voir la fiche de ${premier.nom}`}
             className="flex size-12 shrink-0 items-center justify-center rounded-full bg-encre transition-transform hover:translate-x-0.5"
           >

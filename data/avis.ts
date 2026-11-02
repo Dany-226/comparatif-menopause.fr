@@ -82,6 +82,58 @@ export const avis: Avis[] = [
       },
     ],
   },
+  {
+    produit: "menophytea-silhouette-ventre-plat",
+    slug: "menophytea-ventre-plat",
+    publiee: true,
+    majLe: "2026-11-02",
+    requete: "ménophytea ventre plat avis",
+    titre: (p, total) => `Ménophytea Ventre Plat : notre avis (${p.note}/10, ${p.rang}e sur ${total})`,
+    description: (p) =>
+      `Avis sur Ménophytea Silhouette Ventre Plat : charbon, probiotique, fibres et caféine comparés aux doses des études, ${prix(p.parJour)} par jour, précautions. Ce que la formule peut faire contre le ventre gonflé.`,
+    verdict: (p, total) => [
+      `Ménophytea Silhouette Ventre Plat obtient ${p.note}/10 et se classe ${p.rang}e sur ${total} dans notre comparatif « ventre gonflé ». Sa note tient à une étiquette complète et à un prix de ${prix(p.parJour)} par jour.`,
+      "Le seul actif de la formule qui a une allégation autorisée contre les gaz est le charbon. Ménophytea en apporte 120 mg par jour, alors que l'allégation demande 1 g avant et 1 g après le repas : environ seize fois moins. La levure Saccharomyces boulardii et les fibres n'ont pas de preuve sur les ballonnements à ces doses dans notre base.",
+      "La formule contient aussi 80 mg de caféine par jour, ce qui lui coûte ses points de précautions. Si votre gêne est le ballonnement après les repas, un charbon actif à la bonne dose a de meilleurs arguments.",
+    ],
+    pourQui: [
+      "Vous voulez une seule prise, le matin",
+      "Le prix compte : moins de 0,60 € par jour",
+      "Vous tolérez bien la caféine",
+    ],
+    aEviter: [
+      "Vous cherchez un effet mesuré sur les gaz : la dose de charbon est trop faible",
+      "Vous êtes sensible à la caféine, ou vous en prenez déjà beaucoup",
+      "Vous êtes enceinte ou vous allaitez : la fiche le déconseille",
+    ],
+    questions: (p) => [
+      {
+        question: "Ménophytea Ventre Plat est-il efficace contre le ventre gonflé ?",
+        paragraphes: [
+          "Nous jugeons une formule sur ses actifs, à la dose où elle les contient. Le charbon actif est le seul ingrédient qui a une allégation autorisée contre les gaz, à condition d'en prendre 1 g avant et 1 g après le repas. Ménophytea en apporte 120 mg par jour.",
+          "La levure Saccharomyces boulardii, l'inuline et la gomme d'acacia n'ont pas, à ces doses, de preuve sur les ballonnements dans notre base.",
+        ],
+      },
+      {
+        question: "Ménophytea Ventre Plat contient-il de la caféine ?",
+        paragraphes: [
+          "Oui : 80 mg par jour pour deux gélules, d'après la fiche. La marque conseille de le prendre avant 16 heures aux personnes sensibles à la caféine. La fiche le déconseille aux enfants et aux femmes enceintes ou qui allaitent.",
+        ],
+      },
+      {
+        question: "Combien coûte Ménophytea Ventre Plat ?",
+        paragraphes: [
+          `${prix(p.prix)} la boîte de 60 gélules au dernier relevé, soit ${prix(p.parJour)} par jour à raison de deux gélules. ${p.prixNote ?? ""}`.trim(),
+        ],
+      },
+      {
+        question: "Quelle différence avec un charbon actif vendu seul ?",
+        paragraphes: [
+          "La dose. Un charbon actif vendu seul peut apporter 1 g avant et 1 g après le repas, la dose de l'allégation autorisée. Ménophytea en apporte 120 mg par jour, mélangés à d'autres ingrédients dont de la caféine.",
+        ],
+      },
+    ],
+  },
 ];
 
 export const avisPublies = avis.filter((a) => a.publiee);

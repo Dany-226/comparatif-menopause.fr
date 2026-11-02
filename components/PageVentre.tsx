@@ -130,7 +130,7 @@ export function PageVentre() {
     {
       question: "Quand faut-il consulter pour un ventre gonflé ?",
       texte:
-        "Quand le ventre reste gonflé, ou gonfle plus de 12 fois par mois, surtout après 50 ans. Les recommandations britanniques demandent alors un examen, parce qu'un gonflement persistant peut révéler une maladie de l'ovaire. Il en va de même avec une perte de poids inexpliquée, du sang dans les selles ou un changement durable du transit.",
+        "Quand le ventre reste gonflé, ou gonfle plus de 12 fois par mois, surtout après 50 ans. Les recommandations britanniques demandent alors un examen, parce qu'un gonflement persistant peut révéler une maladie de l'ovaire. Il en va de même avec une satiété rapide, des douleurs du ventre, une perte de poids inexpliquée ou un changement du transit.",
       reponse: (
         <>
           <p>
@@ -139,8 +139,8 @@ export function PageVentre() {
             l'ovaire.
           </p>
           <p>
-            Il en va de même avec une perte de poids inexpliquée, du sang dans les selles ou un changement durable du
-            transit.
+            Il en va de même avec une satiété rapide, des douleurs du ventre, une perte de poids inexpliquée ou un
+            changement du transit.
           </p>
           <p>
             <a href={sources.nice2011.url} target="_blank" rel="noopener">
@@ -310,6 +310,10 @@ export function PageVentre() {
             Si votre gêne est le ballonnement après les repas, c'est le charbon actif qui a les meilleurs arguments. Si
             c'est la silhouette, aucun complément de ce comparatif n'a d'allégation autorisée sur le poids.
           </p>
+          <p>
+            Causes, différence entre gaz et graisse, signes qui doivent faire consulter :{" "}
+            <Link href="/ventre-gonfle-menopause/">notre page sur le ventre gonflé à la ménopause</Link>.
+          </p>
         </div>
       </section>
 
@@ -352,8 +356,8 @@ export function PageVentre() {
           <p className="max-w-[46em]">
             Un ventre qui reste gonflé, ou qui gonfle plus de 12 fois par mois, surtout après 50 ans, se montre à un
             médecin : les recommandations britanniques demandent alors un examen, parce qu'un gonflement persistant peut
-            révéler une maladie de l'ovaire. Même chose avec une perte de poids inexpliquée, du sang dans les selles ou
-            un changement durable du transit. Un complément ne doit pas retarder cette consultation.
+            révéler une maladie de l'ovaire. Même chose avec une satiété rapide, des douleurs du ventre, une perte de
+            poids inexpliquée ou un changement du transit. Un complément ne doit pas retarder cette consultation.
           </p>
           <a href={sources.nice2011.url} target="_blank" rel="noopener" className="lien self-start py-2 text-[16px]">
             Source : NICE, standard de qualité sur le cancer de l'ovaire

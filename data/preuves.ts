@@ -38,7 +38,7 @@ export const symptomes: Record<Symptome, string> = {
   ballonnements: "Ballonnements et gaz",
 };
 
-export type TypeSource = "autorite" | "societe" | "revue" | "essai" | "reglement";
+export type TypeSource = "autorite" | "societe" | "revue" | "essai" | "observation" | "reglement";
 
 export type Source = {
   id: string;
@@ -113,6 +113,10 @@ const liste: Source[] = [
   s("holtmann2003", "essai", "Holtmann et al.", 2003, "Essai randomisé d'un extrait de feuille d'artichaut chez 247 personnes souffrant de dyspepsie fonctionnelle", "Alimentary Pharmacology & Therapeutics 18(11-12):1099-1105", "https://doi.org/10.1046/j.1365-2036.2003.01767.x"),
   s("ingrosso2022", "revue", "Ingrosso et al.", 2022, "Méta-analyse de l'huile de menthe poivrée dans l'intestin irritable (10 essais, 1 030 personnes)", "Alimentary Pharmacology & Therapeutics 56(6):932-941", "https://doi.org/10.1111/apt.17179"),
   s("goodoory2023", "revue", "Goodoory et al.", 2023, "Méta-analyse des probiotiques dans l'intestin irritable (82 essais, 10 332 personnes)", "Gastroenterology 165(5):1206-1218", "https://doi.org/10.1053/j.gastro.2023.07.018"),
+  s("denby2025", "observation", "Denby et al.", 2025, "Symptômes digestifs chez près de 600 femmes de 44 à 73 ans (communication au congrès de la Menopause Society)", "The Menopause Society, congrès annuel 2025, communiqué du 10 octobre 2025", "https://menopause.org/press-releases/digestive-health-issues-more-common-during-perimenopause-and-menopause"),
+  s("solomon2026", "observation", "Solomon et al.", 2026, "Symptômes digestifs et anxiété au fil de la ménopause : cohorte canadienne MOMENTUM (1 832 femmes de 40 à 60 ans)", "The Menopause Society, congrès annuel 2026, résumé lu dans Healio", "https://www.healio.com/news/womens-health-ob-gyn/20261028/excessive-bloating-gas-consistent-burden-for-menopausal-women-study-shows"),
+  s("samargandy2021", "observation", "Samargandy et al.", 2021, "Graisse abdominale viscérale pendant la transition ménopausique : étude SWAN Heart (362 femmes)", "Menopause, résultats lus dans le communiqué de l'éditeur", "https://www.eurekalert.org/news-releases/566757"),
+  s("peters2022", "revue", "Peters et al.", 2022, "Spotlight on the gut microbiome in menopause: current insights", "International Journal of Women's Health 14:1059-1072", "https://doi.org/10.2147/IJWH.S340491"),
   s("nice2011", "autorite", "NICE", 2011, "Ovarian cancer: recognition and initial management (CG122), standard de qualité QS18, énoncé 1", "National Institute for Health and Care Excellence (Royaume-Uni)", "https://www.nice.org.uk/guidance/qs18/chapter/quality-statement-1-symptoms-and-ca125"),
 ];
 
@@ -262,5 +266,6 @@ export const libellesTypes: Record<TypeSource, string> = {
   societe: "Sociétés savantes",
   revue: "Revues systématiques et méta-analyses",
   essai: "Essais randomisés",
+  observation: "Études d'observation",
   reglement: "Textes réglementaires",
 };

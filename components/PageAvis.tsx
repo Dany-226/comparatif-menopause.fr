@@ -20,15 +20,19 @@ import { TableauComparatif } from "./TableauComparatif";
  * les actifs et les alternatives viennent des mêmes données que le comparatif.
  */
 export function PageAvis({ avis }: { avis: Avis }) {
-  const classes = classer(produits, "confort");
+  const usage = produits.find((p) => p.id === avis.produit)!.usage;
+  const classes = classer(produits, usage);
   const produit = classes.find((p) => p.id === avis.produit)!;
   const total = classes.length;
   const [marchand] = produit.marchands;
   const adresse = `${site.url}${cheminAvis(avis)}`;
-  const comparatif = comparatifs.find((c) => c.chemin === pilier)!;
+  const comparatif = comparatifs.find((c) => c.usage === usage && c.publiee) ?? comparatifs.find((c) => c.chemin === pilier)!;
+  const base = comparatif.chemin;
+  const libelleFil = usage === "confort" ? "Meilleur complément ménopause" : "Ventre gonflé ménopause";
 
-  // Alternatives : les deux premiers du classement, puis le mieux classé sans phyto-œstrogènes ni actée.
-  const sansHormonal = classes.find((p) => p.id !== produit.id && !p.faits.phytoOestrogenes && !p.faits.actee);
+  // Alternatives : les deux premiers du classement, puis (pour le confort) le mieux classé sans phyto-œstrogènes ni actée.
+  const sansHormonal =
+    usage === "confort" ? classes.find((p) => p.id !== produit.id && !p.faits.phytoOestrogenes && !p.faits.actee) : undefined;
   const alternatives = [produit, ...classes.filter((p) => p.id !== produit.id).slice(0, 2), ...(sansHormonal ? [sansHormonal] : [])]
     .filter((p, i, t) => t.findIndex((q) => q.id === p.id) === i)
     .sort((a, b) => a.rang - b.rang);
@@ -86,7 +90,7 @@ export function PageAvis({ avis }: { avis: Avis }) {
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Accueil", item: `${site.url}/` },
-                { "@type": "ListItem", position: 2, name: comparatif.titre, item: `${site.url}${pilier}` },
+                { "@type": "ListItem", position: 2, name: comparatif.titre, item: `${site.url}${base}` },
                 { "@type": "ListItem", position: 3, name: `Avis ${produit.nom}`, item: adresse },
               ],
             },
@@ -108,8 +112,8 @@ export function PageAvis({ avis }: { avis: Avis }) {
             Accueil
           </Link>
           <span aria-hidden="true"> / </span>
-          <Link href={pilier} className="underline-offset-4 hover:underline">
-            {comparatif.court}
+          <Link href={base} className="underline-offset-4 hover:underline">
+            {libelleFil}
           </Link>
           <span aria-hidden="true"> / </span>
           <span>Avis {produit.nom}</span>
@@ -136,7 +140,7 @@ export function PageAvis({ avis }: { avis: Avis }) {
                 </div>
                 <div className="mt-1 text-[15px] text-doux">
                   {produit.rang === 1 ? "1er" : `${produit.rang}e`} sur {total} au{" "}
-                  <Link href={`${pilier}#classement`} className="lien">
+                  <Link href={`${base}#classement`} className="lien">
                     classement
                   </Link>
                 </div>
@@ -230,8 +234,8 @@ export function PageAvis({ avis }: { avis: Avis }) {
                 : "."}
           </p>
         </div>
-        <TableauComparatif produits={alternatives} compact base={pilier} emplacement="avis-alternatives" />
-        <Link href={`${pilier}#classement`} className="lien self-start py-2">
+        <TableauComparatif produits={alternatives} compact base={base} emplacement="avis-alternatives" />
+        <Link href={`${base}#classement`} className="lien self-start py-2">
           Voir les {total} formules du classement
         </Link>
       </section>
