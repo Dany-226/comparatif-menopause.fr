@@ -26,14 +26,6 @@ export const viewport: Viewport = { themeColor: "#F2F5EA" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <head>
-        {/* Vérification du domaine par impact.com : le robot lit l'attribut « value », d'où sa présence. */}
-        <meta
-          name="impact-site-verification"
-          content="0b187ce8-7f39-4549-981a-793122ac3d37"
-          {...({ value: "0b187ce8-7f39-4549-981a-793122ac3d37" } as object)}
-        />
-      </head>
       <body>
         <a
           href="#contenu"

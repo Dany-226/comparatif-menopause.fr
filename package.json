@@ -9,8 +9,8 @@
     "verifier": "node scripts/verifier-conformite.mjs",
     "verifier:strict": "node scripts/verifier-conformite.mjs --strict",
     "verifier:html": "node scripts/verifier-html.mjs",
-    "build": "npm run test && npm run verifier && next build && npm run verifier:html",
-    "build:prod": "npm run test && npm run verifier:strict && next build && npm run verifier:html",
+    "build": "npm run test && npm run verifier && next build && node scripts/balises-brutes.mjs && npm run verifier:html",
+    "build:prod": "npm run test && npm run verifier:strict && next build && node scripts/balises-brutes.mjs && npm run verifier:html",
     "apercu": "node scripts/apercu.mjs"
   },
   "dependencies": {
