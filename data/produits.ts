@@ -280,7 +280,7 @@ export const produits: Produit[] = [
     composition: "Extraits cytoplasmiques purifiés de pollens (PureCyTonin) 320 mg, vitamine E 10 mg.",
     criteres: { transparence: 2, allegation: 1, precautions: 2 },
     actifs: [
-      { id: "pollen", dose: "320 mg", comparable: true, remarque: "c'est l'extrait utilisé dans les essais" },
+      { id: "pollen", dose: "320 mg", comparable: true, remarque: "l'extrait et la dose de l'essai contre placebo" },
       { id: "vitamine-e", dose: "10 mg", comparable: false, remarque: "très en dessous des doses des essais" },
     ],
     faits: { phytoOestrogenes: false, actee: false, antidepresseurs: false },
@@ -306,7 +306,6 @@ export const produits: Produit[] = [
     ],
     reserves: [
       "Prix de la boîte de 60 lu sur la fiche du lot de deux boîtes : trouver l'adresse de la boîte seule",
-      "Dose de l'extrait de pollen dans les essais non relue",
     ],
   },
   {

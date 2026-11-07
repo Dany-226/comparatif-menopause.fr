@@ -186,6 +186,109 @@ export const avis: Avis[] = [
       },
     ],
   },
+  {
+    produit: "serelys-meno",
+    slug: "serelys-meno",
+    publiee: true,
+    majLe: "2026-11-07",
+    requete: "sérélys ménopause avis",
+    titre: (p, total) => `Sérélys Meno : notre avis (${p.note}/10, ${p.rang === 1 ? "1er" : `${p.rang}e`} sur ${total})`,
+    description: (p) =>
+      `Avis sur Sérélys Meno : l'extrait de pollen des essais, à leur dose, ${prix(p.parJour)} par jour, sans phyto-œstrogènes. Ce que montrent les études contrôlées, et ce qu'elles ne confirment pas.`,
+    verdict: (p, total) => [
+      `Sérélys Meno obtient ${p.note}/10 et se classe ${p.rang === 1 ? "1er" : `${p.rang}e`} sur ${total} dans notre comparatif. C'est l'une des rares formules dont l'actif principal est exactement celui des essais, à la même dose : 320 mg par jour d'extrait de pollen purifié.`,
+      "Les résultats sont plus fragiles que cette cohérence ne le laisse croire. L'essai contre placebo de référence, chez 64 femmes, est favorable : 65 % de répondeuses contre 38 % sous placebo. Mais la méta-analyse de 2024 montre que l'amélioration n'est plus significative quand on ne garde que les études contrôlées.",
+      `La formule ne contient ni phyto-œstrogènes ni actée à grappes, et demande peu de précautions. À ${prix(p.parJour)} par jour, c'est une option à considérer si vous devez éviter les phyto-œstrogènes, en sachant que son effet reste incertain.`,
+    ],
+    pourQui: [
+      "Vous devez ou voulez éviter les phyto-œstrogènes (soja, trèfle rouge, houblon) et l'actée à grappes",
+      "Vous voulez un produit qui contient l'extrait et la dose de son essai, pas un mélange de petits dosages",
+      "Vous préférez une seule gélule par jour",
+    ],
+    aEviter: [
+      "Vous êtes allergique au pollen : demandez conseil avant",
+      "Vous attendez un effet démontré de façon solide : les études contrôlées ne le confirment pas",
+      "Le prix par jour est votre premier critère : d'autres formules du classement coûtent moins cher",
+    ],
+    questions: (p) => [
+      {
+        question: "Sérélys est-il efficace contre les bouffées de chaleur ?",
+        paragraphes: [
+          "Son extrait de pollen a été testé à 320 mg par jour pendant trois mois, dans un essai contre placebo chez 64 femmes : 65 % ont vu leurs bouffées de chaleur diminuer, contre 38 % sous placebo. Sérélys Meno apporte cette dose en une gélule.",
+          "La méta-analyse de 2024 (5 études, 420 femmes) nuance ce résultat : une partie des études étaient ouvertes, sans placebo, et quand on ne garde que les études contrôlées, l'amélioration n'est plus significative. Nous classons donc cette preuve au niveau C.",
+        ],
+      },
+      {
+        question: "Sérélys contient-il des hormones ou des phyto-œstrogènes ?",
+        paragraphes: [
+          "Aucun complément alimentaire ne contient d'hormones. Sérélys Meno ne contient pas non plus de phyto-œstrogènes ni d'actée à grappes : sa formule se limite à l'extrait de pollen et à de la vitamine E, d'après la composition publiée.",
+        ],
+      },
+      {
+        question: "Peut-on prendre Sérélys après un cancer du sein ?",
+        paragraphes: [
+          "La formule ne contient ni phyto-œstrogènes ni actée à grappes, les deux familles habituellement déconseillées après un cancer hormono-dépendant. Ce n'est pas pour autant une autorisation : pendant ou après un cancer, tout complément se discute avec l'équipe qui vous suit.",
+        ],
+      },
+      {
+        question: "Combien coûte Sérélys Meno ?",
+        paragraphes: [
+          `${prix(p.prix)} la boîte de 60 gélules au dernier relevé, soit ${prix(p.parJour)} par jour à raison d'une gélule. ${p.prixNote ?? ""}`.trim(),
+        ],
+      },
+    ],
+  },
+  {
+    produit: "ymea-menopause-ventre-plat",
+    slug: "ymea-menopause-ventre-plat",
+    publiee: true,
+    majLe: "2026-11-07",
+    requete: "ymea ménopause ventre plat avis",
+    titre: (p, total) => `Ymea Ménopause Ventre Plat : notre avis (${p.note}/10, ${p.rang === 1 ? "1er" : `${p.rang}e`} sur ${total})`,
+    description: (p) =>
+      `Avis sur Ymea Ménopause Ventre Plat : artichaut, sauge et maca comparés aux doses des études, ${prix(p.parJour)} par jour, précautions. Ce que la formule peut faire contre le ventre gonflé.`,
+    verdict: (p, total) => [
+      `Ymea Ménopause Ventre Plat obtient ${p.note}/10 et se classe ${p.rang === 1 ? "1er" : `${p.rang}e`} sur ${total} dans notre comparatif « ventre gonflé ». Sa note tient à une étiquette complète, à des précautions d'emploi réduites et à l'absence de phyto-œstrogènes.`,
+      "Elle ne tient pas aux preuves sur le ventre. Le seul actif de la formule étudié sur la digestion est l'artichaut : 250 mg par jour, environ huit fois moins que les 1 920 mg de l'essai, qui portait d'ailleurs sur des troubles digestifs hors ménopause.",
+      "La sauge, à 300 mg, vise les bouffées de chaleur, pas le ventre. Ymea est donc une formule ménopause généraliste vendue sous l'angle du ventre plat. Si votre gêne principale est le ballonnement après les repas, un charbon actif à la dose de l'allégation autorisée a de meilleurs arguments.",
+    ],
+    pourQui: [
+      "Vous voulez une formule sans phyto-œstrogènes ni actée à grappes",
+      "Vous cherchez une formule ménopause générale plutôt qu'un produit ciblé sur le ventre",
+      "Vous voulez connaître la dose de chaque actif : elles sont toutes affichées",
+    ],
+    aEviter: [
+      "Vous cherchez un effet mesuré sur les ballonnements : aucun actif n'est à une dose étudiée sur le ventre",
+      "Vous attendez une perte de ventre ou de poids : aucun actif de la formule n'a de preuve à ce sujet dans notre base",
+    ],
+    questions: (p) => [
+      {
+        question: "Ymea Ventre Plat est-il efficace contre le ventre gonflé ?",
+        paragraphes: [
+          "Nous jugeons une formule sur ses actifs, à la dose où elle les contient. L'artichaut est le seul actif d'Ymea étudié sur la digestion : dans un essai de 244 personnes, 1 920 mg d'extrait de feuille par jour ont réduit les symptômes digestifs face au placebo. Ymea en apporte 250 mg.",
+          "La maca, la sauge, le piment, le zinc et les vitamines B6 et D n'ont pas, dans notre base, de preuve sur les ballonnements.",
+        ],
+      },
+      {
+        question: "Ymea contient-il des hormones ou des phyto-œstrogènes ?",
+        paragraphes: [
+          "Aucun complément alimentaire ne contient d'hormones. Ymea Ménopause Ventre Plat ne contient pas de phyto-œstrogènes ni d'actée à grappes, d'après la composition publiée.",
+        ],
+      },
+      {
+        question: "Et contre les bouffées de chaleur ?",
+        paragraphes: [
+          "La formule contient 300 mg d'extrait de sauge. Un essai a montré un effet face au placebo chez 80 femmes, mais la méta-analyse de quatre essais (310 femmes) ne trouve pas de différence significative. Les doses varient beaucoup d'un extrait à l'autre, ce qui rend la comparaison difficile.",
+        ],
+      },
+      {
+        question: "Combien coûte Ymea Ménopause Ventre Plat ?",
+        paragraphes: [
+          `${prix(p.prix)} la boîte de 64 gélules au dernier relevé, soit ${prix(p.parJour)} par jour à raison de deux gélules.`,
+        ],
+      },
+    ],
+  },
 ];
 
 export const avisPublies = avis.filter((a) => a.publiee);
