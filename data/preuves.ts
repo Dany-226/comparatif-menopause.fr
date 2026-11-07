@@ -116,6 +116,9 @@ const liste: Source[] = [
   s("goodoory2023", "revue", "Goodoory et al.", 2023, "Méta-analyse des probiotiques dans l'intestin irritable (82 essais, 10 332 personnes)", "Gastroenterology 165(5):1206-1218", "https://doi.org/10.1053/j.gastro.2023.07.018"),
   s("denby2025", "observation", "Denby et al.", 2025, "Symptômes digestifs chez près de 600 femmes de 44 à 73 ans (communication au congrès de la Menopause Society)", "The Menopause Society, congrès annuel 2025, communiqué du 10 octobre 2025", "https://menopause.org/press-releases/digestive-health-issues-more-common-during-perimenopause-and-menopause"),
   s("solomon2026", "observation", "Solomon et al.", 2026, "Symptômes digestifs et anxiété au fil de la ménopause : cohorte canadienne MOMENTUM (1 832 femmes de 40 à 60 ans)", "The Menopause Society, congrès annuel 2026, résumé lu dans Healio", "https://www.healio.com/news/womens-health-ob-gyn/20261028/excessive-bloating-gas-consistent-burden-for-menopausal-women-study-shows"),
+  s("greendale2019", "observation", "Greendale et al.", 2019, "Composition corporelle et poids pendant la transition ménopausique : cohorte américaine SWAN", "JCI Insight 4(5):e124865, résultats lus dans le résumé", "https://content.jci.org/articles/view/124865/pdf"),
+  s("davis2012", "revue", "Davis et al.", 2012, "Understanding weight gain at menopause, revue de l'International Menopause Society", "Climacteric 15(5), résultats lus dans le communiqué de la société", "https://www.sciencedaily.com/releases/2012/10/121016084938.htm"),
+  s("efsaGlucomannane2010", "autorite", "EFSA", 2010, "Avis scientifique sur les allégations de santé du glucomannane (mannane de konjac), dont la réduction du poids", "Autorité européenne de sécurité des aliments, EFSA Journal", "https://www.efsa.europa.eu/en/scdocs/doc/1798.pdf"),
   s("samargandy2021", "observation", "Samargandy et al.", 2021, "Graisse abdominale viscérale pendant la transition ménopausique : étude SWAN Heart (362 femmes)", "Menopause, résultats lus dans le communiqué de l'éditeur", "https://www.eurekalert.org/news-releases/566757"),
   s("peters2022", "revue", "Peters et al.", 2022, "Spotlight on the gut microbiome in menopause: current insights", "International Journal of Women's Health 14:1059-1072", "https://doi.org/10.2147/IJWH.S340491"),
   s("nice2011", "autorite", "NICE", 2011, "Ovarian cancer: recognition and initial management (CG122), standard de qualité QS18, énoncé 1", "National Institute for Health and Care Excellence (Royaume-Uni)", "https://www.nice.org.uk/guidance/qs18/chapter/quality-statement-1-symptoms-and-ca125"),
@@ -256,7 +259,7 @@ export function mentionSources(p: Preuve): string {
 
 /** Toutes les sources citées par les preuves et les mises en garde, plus les textes de référence du site. */
 export function sourcesCitees(): Source[] {
-  const ids = new Set<string>(["nice2011", "has2025", "menopauseSociety2023", "efsa2012", "efsa2015", "anses2025", "reglement432", "nutrivigilance", "dgal"]);
+  const ids = new Set<string>(["greendale2019", "davis2012", "efsaGlucomannane2010", "nice2011", "has2025", "menopauseSociety2023", "efsa2012", "efsa2015", "anses2025", "reglement432", "nutrivigilance", "dgal"]);
   for (const p of preuves) for (const id of p.sources) ids.add(id);
   for (const a of Object.values(actifs)) for (const id of a.sourcesVigilance ?? []) ids.add(id);
   return [...ids].map((id) => sources[id]);

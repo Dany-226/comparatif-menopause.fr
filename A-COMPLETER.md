@@ -33,6 +33,7 @@ Une réserve levée se retire de la liste `reserves` du produit.
 
 - Les fiches PubMed n'étaient pas lisibles par l'outil de recherche : les résumés ont été lus sur les sites des éditeurs, des dépôts d'universités et des bases qui les reprennent. Six sources ont été relues une seconde fois (Taku 2012, JAMA 2016, safran 2021, actée 2023, trèfle rouge 2021, pollen 2024) ; les autres ne l'ont été qu'une fois.
 - Trois sources ont été lues de seconde main : l'essai sur la vitamine D (communiqué de l'institution), l'essai sur le fenugrec de 2017 (pages qui le résument) et l'avis complet de la Haute Autorité de santé sur la bêta-alanine (page de synthèse).
+- Page prise de poids (7 novembre 2026) : la revue de Davis et al. (2012) a été lue dans le communiqué de l'International Menopause Society ; l'étude SWAN de Greendale et al. (2019) dans son résumé ; les conditions de l'allégation du glucomannane (3 g par jour en trois prises, eau, régime hypocalorique) dans un article de presse professionnelle, l'avis de l'EFSA n'étant lisible que par sa page de titre. À relire à la source.
 - « Aucun essai trouvé » (bourrache, tryptophane, vitamine B6) décrit une recherche, pas une certitude.
 - Non documentés à ce jour : citrus, rhodiole, lin, kudzu, romarin.
 

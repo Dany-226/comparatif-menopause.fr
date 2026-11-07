@@ -21,6 +21,7 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
+  { date: "2026-11-07", texte: "Nouvelle page sur la prise de poids à la ménopause ; avis détaillés sur Sérélys Meno et Ymea Ménopause Ventre Plat." },
   { date: "2026-11-02", texte: "Nouvelle page d'information sur le ventre gonflé et avis détaillé sur Ménophytea Silhouette Ventre Plat." },
   { date: "2026-11-02", texte: "Nouveau comparatif : compléments pour le ventre gonflé, six formules et quatre lignes de preuve sur les ballonnements." },
   { date: "2026-11-02", texte: "Première page d'avis détaillé (Manhaé Ménopause), reliée depuis sa fiche." },
@@ -82,8 +83,8 @@ export const comparatifs: PageSite[] = [
     chemin: "/complement-alimentaire-menopause-prise-de-poids/",
     titre: "Compléments et prise de poids à la ménopause",
     court: "Prise de poids",
-    resume: "Les formules qui visent le poids et la silhouette.",
-    publiee: false,
+    resume: "Ce que l'on sait de la prise de poids à la ménopause, et ce que valent les compléments qui promettent de l'éviter.",
+    publiee: true,
   },
 ];
 

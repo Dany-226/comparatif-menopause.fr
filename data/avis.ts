@@ -38,7 +38,7 @@ export const avis: Avis[] = [
     requete: "manhaé ménopause avis",
     titre: (p, total) => `Manhaé ménopause : notre avis (${p.note}/10, ${p.rang}e sur ${total})`,
     description: (p) =>
-      `Avis sur Manhaé Ménopause : composition analysée actif par actif face aux études, ${prix(p.parJour)} par jour, précautions. Ce que la formule fait bien, et ce qu'elle ne documente pas.`,
+      `Avis sur Manhaé Ménopause : composition analysée actif par actif face aux études, ${prix(p.parJour)} par jour, précautions, prise de poids. Ce que la formule fait bien, et ce qu'elle ne documente pas.`,
     verdict: (p, total) => [
       `Manhaé obtient ${p.note}/10 et se classe ${p.rang}e sur ${total} dans notre comparatif. Cette note vient de son prix, le plus bas par jour du comparatif (${prix(p.parJour)}), d'une étiquette qui affiche la dose de chaque actif et de précautions d'emploi réduites.`,
       "Elle ne vient pas des preuves : aucun de ses actifs n'est présent à une dose étudiée chez des femmes ménopausées. Les oméga-3 sont environ vingt fois moins dosés que dans l'essai de référence, qui n'a d'ailleurs pas montré de différence avec le placebo sur les bouffées de chaleur.",
@@ -72,6 +72,13 @@ export const avis: Avis[] = [
         question: "Combien coûte Manhaé ?",
         paragraphes: [
           `${prix(p.prix)} la boîte de 90 capsules au dernier relevé, soit ${prix(p.parJour)} par jour à raison d'une capsule. ${p.prixNote ?? ""}`.trim(),
+        ],
+      },
+      {
+        question: "Manhaé fait-il grossir ?",
+        paragraphes: [
+          "Aucune étude n'a mesuré l'effet de Manhaé sur le poids, ni dans un sens ni dans l'autre. Ses actifs (oméga-3, huile de bourrache, vitamine E, extrait de citrus) n'ont pas, dans notre base de preuves, d'effet documenté sur le poids aux doses de la formule. On ne peut donc ni affirmer qu'il fait grossir, ni affirmer le contraire.",
+          "La prise de poids est en revanche fréquente pendant la transition ménopausique, avec ou sans complément : dans la cohorte américaine SWAN, le gain de masse grasse double au début de la transition et se poursuit jusqu'à deux ans après les dernières règles. Une prise de poids qui commence en même temps qu'un complément peut donc avoir une autre cause. Si elle vous inquiète, parlez-en à votre médecin.",
         ],
       },
       {
