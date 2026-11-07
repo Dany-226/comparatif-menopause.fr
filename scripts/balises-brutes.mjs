@@ -8,8 +8,8 @@ import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const balises = [
-  // impact.com, chaîne fournie par la régie le 7 novembre 2026.
-  "<meta name='impact-site-verification' value='0b187ce8-7f39-4549-981a-793122ac3d37'>",
+  // impact.com, chaîne fournie par la régie le 7 novembre 2026 (second code, 17 h 40).
+  "<meta name='impact-site-verification' value='bf855711-b0ce-4535-bf1e-cdaf99fa5057'>",
 ];
 
 const racine = join(process.cwd(), "out");
