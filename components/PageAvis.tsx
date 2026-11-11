@@ -14,6 +14,8 @@ import { Coche, Pilule, Tiret } from "./Icones";
 import { JsonLd } from "./JsonLd";
 import { LienMarchand } from "./LienMarchand";
 import { TableauComparatif } from "./TableauComparatif";
+import { VisuelProduit } from "./VisuelProduit";
+import { photosProduits } from "@/data/photos-produits";
 import { TexteLie, texteBrut } from "@/lib/texteLie";
 
 /**
@@ -129,7 +131,7 @@ export function PageAvis({ avis }: { avis: Avis }) {
           <span>Avis {produit.nom}</span>
         </nav>
 
-        <div className="grid items-end gap-x-12 gap-y-6 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)]">
+        <div className="grid items-end gap-x-12 gap-y-6 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)] lg:items-center">
           <div className="flex min-w-0 flex-col gap-4">
             <div className="surtitre md:!text-[14px]">
               Avis · {produit.marque} · mis à jour le {dateLongue(avis.majLe)}
@@ -142,6 +144,9 @@ export function PageAvis({ avis }: { avis: Avis }) {
           </div>
 
           <div className="flex flex-col gap-4 rounded-[24px] bg-sauge p-6">
+            {photosProduits[produit.id] && (
+              <VisuelProduit id={produit.id} format={produit.format} className="mx-auto size-[184px]" sizes="184px" />
+            )}
             <div className="flex items-end justify-between gap-4">
               <div>
                 <div className="text-[46px] font-semibold leading-none tracking-[-0.02em] tabular-nums">

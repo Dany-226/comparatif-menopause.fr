@@ -134,7 +134,7 @@ for (const [id, photo] of Object.entries(photosProduits)) {
     if (!existsSync(join(racine, "public/produits", `${id}-${taille}.webp`)))
       erreurs.push(`Photo de produit « ${id} » : fichier public/produits/${id}-${taille}.webp absent`);
   }
-  if (!["maison", "marque", "regie"].includes(photo.origine)) erreurs.push(`Photo de produit « ${id} » : origine inconnue`);
+  if (!["maison", "marque", "regie", "marchand"].includes(photo.origine)) erreurs.push(`Photo de produit « ${id} » : origine inconnue`);
   if (!photo.credit?.trim()) erreurs.push(`Photo de produit « ${id} » : crédit vide (qui a fourni l'image, et quand)`);
   if (!photo.alt?.trim()) erreurs.push(`Photo de produit « ${id} » : texte alternatif vide`);
 }

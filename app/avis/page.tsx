@@ -4,6 +4,7 @@ import { EncadreMedical } from "@/components/EncadreMedical";
 import { EntetePage } from "@/components/EntetePage";
 import { FlecheDroite } from "@/components/Icones";
 import { JsonLd } from "@/components/JsonLd";
+import { VisuelProduit } from "@/components/VisuelProduit";
 import { avisPublies, cheminAvis } from "@/data/avis";
 import { produits, type Usage } from "@/data/produits";
 import { comparatifs, site } from "@/data/site";
@@ -40,7 +41,8 @@ function Carte({ produit, total, chemin }: Ligne) {
       className="group flex flex-col gap-4 rounded-[22px] border border-trait bg-white p-5 transition-colors hover:bg-sauge md:p-6"
     >
       <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0">
+        <VisuelProduit id={produit.id} format={produit.format} className="size-[72px]" sizes="72px" />
+        <div className="min-w-0 flex-1">
           <div className="surtitre !text-[12px]">{produit.marque}</div>
           <h3 className="mt-1 text-[21px] font-medium leading-tight tracking-[-0.01em]">{produit.nom}</h3>
         </div>
