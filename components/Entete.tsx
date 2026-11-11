@@ -5,6 +5,7 @@ import { pilier } from "@/data/site";
 const liens = [
   { href: pilier, libelle: "Le comparatif" },
   { href: "/complement-alimentaire-ventre-gonfle-menopause/", libelle: "Ventre gonflé" },
+  { href: "/avis/", libelle: "Les avis" },
   { href: "/preuves-complements-menopause/", libelle: "Les preuves" },
   { href: "/a-propos/", libelle: "À propos" },
 ];
@@ -18,7 +19,7 @@ export function Entete() {
           <span className="text-[18px] font-semibold tracking-[-0.01em] md:text-[20px]">comparatif ménopause</span>
         </Link>
 
-        <nav aria-label="Navigation principale" className="hidden items-center gap-7 text-[17px] md:flex">
+        <nav aria-label="Navigation principale" className="hidden items-center gap-7 whitespace-nowrap text-[17px] lg:flex">
           {liens.map((l) => (
             <Link key={l.href} href={l.href} className="py-3 hover:underline hover:underline-offset-4">
               {l.libelle}
@@ -32,7 +33,7 @@ export function Entete() {
           </Link>
         </nav>
 
-        <details className="relative md:hidden">
+        <details className="relative lg:hidden">
           <summary
             aria-label="Menu"
             className="flex size-[46px] list-none items-center justify-center rounded-full border-[1.5px] border-foret"

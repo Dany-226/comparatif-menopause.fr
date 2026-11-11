@@ -14,6 +14,7 @@ import { Coche, Pilule, Tiret } from "./Icones";
 import { JsonLd } from "./JsonLd";
 import { LienMarchand } from "./LienMarchand";
 import { TableauComparatif } from "./TableauComparatif";
+import { TexteLie, texteBrut } from "@/lib/texteLie";
 
 /**
  * Gabarit d'une page d'avis. Le texte vient de data/avis.ts ; la note, le rang, le prix,
@@ -30,10 +31,17 @@ export function PageAvis({ avis }: { avis: Avis }) {
   const base = comparatif.chemin;
   const libelleFil = usage === "confort" ? "Meilleur complément ménopause" : "Ventre gonflé ménopause";
 
-  // Alternatives : les deux premiers du classement, puis (pour le confort) le mieux classé sans phyto-œstrogènes ni actée.
+  // Alternatives : les deux premiers du classement, les formules classées juste au-dessus et juste en dessous,
+  // puis (pour le confort) le mieux classé sans phyto-œstrogènes ni actée.
   const sansHormonal =
     usage === "confort" ? classes.find((p) => p.id !== produit.id && !p.faits.phytoOestrogenes && !p.faits.actee) : undefined;
-  const alternatives = [produit, ...classes.filter((p) => p.id !== produit.id).slice(0, 2), ...(sansHormonal ? [sansHormonal] : [])]
+  const voisins = classes.filter((p) => Math.abs(p.rang - produit.rang) === 1);
+  const alternatives = [
+    produit,
+    ...classes.filter((p) => p.id !== produit.id).slice(0, 2),
+    ...voisins,
+    ...(sansHormonal ? [sansHormonal] : []),
+  ]
     .filter((p, i, t) => t.findIndex((q) => q.id === p.id) === i)
     .sort((a, b) => a.rang - b.rang);
 
@@ -42,11 +50,13 @@ export function PageAvis({ avis }: { avis: Avis }) {
   const verdict = avis.verdict(produit, total);
   const questions: Question[] = avis.questions(produit).map((q) => ({
     question: q.question,
-    texte: q.paragraphes.join(" "),
+    texte: texteBrut(q.paragraphes.join(" ")),
     reponse: (
       <>
         {q.paragraphes.map((t) => (
-          <p key={t}>{t}</p>
+          <p key={t}>
+            <TexteLie texte={t} />
+          </p>
         ))}
       </>
     ),
@@ -80,7 +90,7 @@ export function PageAvis({ avis }: { avis: Avis }) {
                 inLanguage: "fr-FR",
                 datePublished: avis.majLe,
                 dateModified: avis.majLe,
-                reviewBody: verdict.join(" "),
+                reviewBody: texteBrut(verdict.join(" ")),
                 author: { "@type": "Organization", name: site.signature, url: site.url },
                 publisher: { "@type": "Organization", name: site.editeur },
                 reviewRating: { "@type": "Rating", ratingValue: produit.note, bestRating: noteMax, worstRating: 0 },
@@ -170,7 +180,9 @@ export function PageAvis({ avis }: { avis: Avis }) {
         <h2 className="titre-2">Notre verdict</h2>
         <div className="flex max-w-[46em] flex-col gap-4 text-[18px] leading-relaxed">
           {verdict.map((t) => (
-            <p key={t}>{t}</p>
+            <p key={t}>
+              <TexteLie texte={t} />
+            </p>
           ))}
         </div>
       </section>
@@ -226,7 +238,7 @@ export function PageAvis({ avis }: { avis: Avis }) {
         <div className="flex flex-col gap-2">
           <h2 className="titre-2">Les alternatives à {produit.nom}</h2>
           <p className="max-w-[44em] text-doux">
-            Les deux premières formules du classement
+            Les deux premières formules du classement, celles classées juste avant et juste après
             {sansHormonalEnPlus
               ? ", et la mieux classée sans phyto-œstrogènes ni actée à grappes."
               : sansHormonal

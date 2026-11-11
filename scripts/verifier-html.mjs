@@ -66,6 +66,15 @@ for (const fichier of trouvees) {
     if (!/target="_blank"/.test(lien)) erreurs.push(`${nom} : lien marchand qui ne s'ouvre pas dans un nouvel onglet`);
   }
 
+  // Liens internes : chaque adresse citée doit exister dans le site construit, et aucun lien
+  // écrit « [texte](/chemin/) » dans les données ne doit rester visible tel quel.
+  for (const [, cible] of html.matchAll(/<a [^>]*href="(\/[^"#?]*)/g)) {
+    if (cible.startsWith("/_next")) continue;
+    const fichierCible = cible.endsWith("/") ? join(out, cible, "index.html") : join(out, cible);
+    if (!existsSync(fichierCible)) erreurs.push(`${nom} : lien interne vers ${cible}, page introuvable`);
+  }
+  if (/\]\(\//.test(html.replace(/<script[\s\S]*?<\/script>/g, ""))) erreurs.push(`${nom} : lien écrit [texte](/chemin/) non transformé`);
+
   for (const image of html.match(/<img [^>]*>/g) ?? []) {
     if (!/ alt="/.test(image)) erreurs.push(`${nom} : image sans texte alternatif`);
   }

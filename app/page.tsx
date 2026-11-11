@@ -156,6 +156,9 @@ export default function Accueil() {
           </Link>
         </div>
         <TableauComparatif produits={enTete} compact base={pilier} emplacement="accueil" />
+        <Link href="/avis/" className="lien self-start py-2 text-[17px]">
+          Lire nos avis détaillés, formule par formule
+        </Link>
       </section>
 
       <section aria-label="La ménopause en chiffres" className="border-y border-trait bg-sauge">

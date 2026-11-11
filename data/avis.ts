@@ -105,7 +105,7 @@ export const avis: Avis[] = [
     verdict: (p, total) => [
       `Ménophytea Silhouette Ventre Plat obtient ${p.note}/10 et se classe ${p.rang}e sur ${total} dans notre comparatif « ventre gonflé ». Sa note tient à une étiquette complète et à un prix de ${prix(p.parJour)} par jour.`,
       "Le seul actif de la formule qui a une allégation autorisée contre les gaz est le charbon. Ménophytea en apporte 120 mg par jour, alors que l'allégation demande 1 g avant et 1 g après le repas : environ seize fois moins. La levure Saccharomyces boulardii et les fibres n'ont pas de preuve sur les ballonnements à ces doses dans notre base.",
-      "La formule contient aussi 80 mg de caféine par jour, ce qui lui coûte ses points de précautions. Si votre gêne est le ballonnement après les repas, un charbon actif à la bonne dose a de meilleurs arguments.",
+      "La formule contient aussi 80 mg de caféine par jour, ce qui lui coûte ses points de précautions. Si votre gêne est le ballonnement après les repas, un [charbon actif](/actifs/charbon-actif/) à la bonne dose a de meilleurs arguments.",
     ],
     pourQui: [
       "Vous voulez une seule prise, le matin",
@@ -135,6 +135,12 @@ export const avis: Avis[] = [
         question: "Combien coûte Ménophytea Ventre Plat ?",
         paragraphes: [
           `${prix(p.prix)} la boîte de 60 gélules au dernier relevé, soit ${prix(p.parJour)} par jour à raison de deux gélules. ${p.prixNote ?? ""}`.trim(),
+        ],
+      },
+      {
+        question: "Quelle différence avec Ménophytea Bouffées de chaleur ?",
+        paragraphes: [
+          "Ce sont deux produits différents de la même marque. Silhouette Ventre Plat vise le ventre avec du charbon, des fibres, un probiotique et de la caféine. [Ménophytea Bouffées de chaleur](/avis/menophytea-bouffees-de-chaleur/) vise les bouffées de chaleur avec du lin, du houblon et du kudzu, trois sources de phyto-œstrogènes.",
         ],
       },
       {
@@ -186,7 +192,13 @@ export const avis: Avis[] = [
       {
         question: "Peut-on prendre Capital Féminité après un cancer du sein ?",
         paragraphes: [
-          "C'est déconseillé : les compléments de phyto-œstrogènes sont déconseillés en cas d'antécédent personnel ou familial de cancer du sein. Parlez-en à l'équipe qui vous suit ; les formules sans phyto-œstrogènes ni actée à grappes sont signalées dans notre classement.",
+          "C'est déconseillé : les compléments de phyto-œstrogènes sont déconseillés en cas d'antécédent personnel ou familial de cancer du sein. Parlez-en à l'équipe qui vous suit ; les formules sans phyto-œstrogènes ni actée à grappes, comme [Sérélys Meno](/avis/serelys-meno/) ou [Manhaé](/avis/manhae-menopause/), sont signalées dans notre classement.",
+        ],
+      },
+      {
+        question: "Capital Féminité ou Phyto Soya ?",
+        paragraphes: [
+          "Les deux formules reposent sur le même actif, à une dose comparable à celle des essais : 50 mg d'isoflavones pour Capital Féminité, 44 mg pour [Phyto Soya Ménopause d'Arkopharma](/avis/phyto-soya-menopause/). Capital Féminité contient en plus de la vitamine B6 et coûte moins cher par jour au dernier relevé, ce qui le place devant dans notre classement. Phyto Soya a l'avantage d'une boîte de trois mois. Les contre-indications liées aux phyto-œstrogènes sont les mêmes.",
         ],
       },
       {
@@ -242,6 +254,12 @@ export const avis: Avis[] = [
         ],
       },
       {
+        question: "Sérélys ou Valebio ?",
+        paragraphes: [
+          "Les deux formules reposent sur un extrait de pollen et ne contiennent ni phyto-œstrogènes ni actée à grappes. Sérélys Meno contient l'extrait des essais, à leur dose de 320 mg ; [Valebio Complexe Ménopause](/avis/valebio-menopause/) un autre extrait, à 300 mg, avec de la bêta-alanine et du tryptophane. Sérélys est moins cher par jour au dernier relevé, et la fiche de Valebio le déconseille sous antidépresseurs ou triptans.",
+        ],
+      },
+      {
         question: "Combien coûte Sérélys Meno ?",
         paragraphes: [
           `${prix(p.prix)} la boîte de 60 gélules au dernier relevé, soit ${prix(p.parJour)} par jour à raison d'une gélule. ${p.prixNote ?? ""}`.trim(),
@@ -261,7 +279,7 @@ export const avis: Avis[] = [
     verdict: (p, total) => [
       `Ymea Ménopause Ventre Plat obtient ${p.note}/10 et se classe ${p.rang === 1 ? "1er" : `${p.rang}e`} sur ${total} dans notre comparatif « ventre gonflé ». Sa note tient à une étiquette complète, à des précautions d'emploi réduites et à l'absence de phyto-œstrogènes.`,
       "Elle ne tient pas aux preuves sur le ventre. Le seul actif de la formule étudié sur la digestion est l'artichaut : 250 mg par jour, environ huit fois moins que les 1 920 mg de l'essai, qui portait d'ailleurs sur des troubles digestifs hors ménopause.",
-      "La sauge, à 300 mg, vise les bouffées de chaleur, pas le ventre. Ymea est donc une formule ménopause généraliste vendue sous l'angle du ventre plat. Si votre gêne principale est le ballonnement après les repas, un charbon actif à la dose de l'allégation autorisée a de meilleurs arguments.",
+      "La sauge, à 300 mg, vise les bouffées de chaleur, pas le ventre. Ymea est donc une formule ménopause généraliste vendue sous l'angle du ventre plat. Si votre gêne principale est le ballonnement après les repas, un [charbon actif](/actifs/charbon-actif/) à la dose de l'allégation autorisée a de meilleurs arguments.",
     ],
     pourQui: [
       "Vous voulez une formule sans phyto-œstrogènes ni actée à grappes",
@@ -342,7 +360,7 @@ export const avis: Avis[] = [
       {
         question: "Feminabiane Méno'Confort contient-il des hormones ou des phyto-œstrogènes ?",
         paragraphes: [
-          "Aucun complément alimentaire ne contient d'hormones. Feminabiane Méno'Confort ne contient pas de phyto-œstrogènes (soja, trèfle rouge, houblon, lin), d'après la composition publiée. Il contient en revanche de l'actée à grappes, déconseillée après un cancer du sein sans avis médical.",
+          "Aucun complément alimentaire ne contient d'hormones. Feminabiane Méno'Confort ne contient pas de phyto-œstrogènes (soja, trèfle rouge, houblon, lin), d'après la composition publiée. Il contient en revanche de l'actée à grappes, déconseillée après un cancer du sein sans avis médical. [Sérélys Meno](/avis/serelys-meno/) et [Manhaé](/avis/manhae-menopause/) ne contiennent ni l'un ni l'autre.",
         ],
       },
       {
@@ -365,7 +383,7 @@ export const avis: Avis[] = [
     verdict: (p, total) => [
       `Phyto Soya Ménopause obtient ${p.note}/10 et se classe ${rangLong(p)} sur ${total} dans notre comparatif. Son actif principal est l'un des mieux étudiés : 44 mg d'isoflavones de soja par jour, une dose comparable à celle des essais (54 mg en médiane), et une teneur affichée en aglycones, ce que peu de fiches précisent.`,
       "L'effet mesuré de ces isoflavones reste modeste : environ 20 % de bouffées de chaleur en moins face au placebo dans une méta-analyse de 17 essais, moins d'une bouffée par jour dans une autre. La revue Cochrane ne juge pas ces preuves concluantes. La sauge et la vitamine E de la formule sont en dessous des doses des essais.",
-      "Ce qui lui coûte des points, ce sont les précautions : déconseillé en cas d'antécédent de cancer du sein et sous anticoagulants, et susceptible de gêner l'absorption des hormones thyroïdiennes. À actif comparable, Capital Féminité de Fleurance Nature apporte un peu plus d'isoflavones, de la vitamine B6, et coûte moins cher par jour.",
+      "Ce qui lui coûte des points, ce sont les précautions : déconseillé en cas d'antécédent de cancer du sein et sous anticoagulants, et susceptible de gêner l'absorption des hormones thyroïdiennes. À actif comparable, [Capital Féminité de Fleurance Nature](/avis/capital-feminite-fleurance/) apporte un peu plus d'isoflavones, de la vitamine B6, et coûte moins cher par jour.",
     ],
     pourQui: [
       "Vos bouffées de chaleur sont votre principale gêne",
@@ -395,7 +413,7 @@ export const avis: Avis[] = [
       {
         question: "Peut-on prendre Phyto Soya après un cancer du sein ?",
         paragraphes: [
-          "C'est déconseillé : l'Afssa en 2005, puis les recommandations françaises de 2021, déconseillent les compléments de phyto-œstrogènes en cas d'antécédent personnel ou familial de cancer du sein. Parlez-en à l'équipe qui vous suit ; les formules sans phyto-œstrogènes ni actée à grappes sont signalées dans notre classement.",
+          "C'est déconseillé : l'Afssa en 2005, puis les recommandations françaises de 2021, déconseillent les compléments de phyto-œstrogènes en cas d'antécédent personnel ou familial de cancer du sein. Parlez-en à l'équipe qui vous suit ; les formules sans phyto-œstrogènes ni actée à grappes, comme [Sérélys Meno](/avis/serelys-meno/) ou [Manhaé](/avis/manhae-menopause/), sont signalées dans notre classement.",
         ],
       },
       {
@@ -453,13 +471,13 @@ export const avis: Avis[] = [
       {
         question: "Peut-on le prendre après un cancer du sein ?",
         paragraphes: [
-          "C'est déconseillé : les compléments de phyto-œstrogènes sont déconseillés en cas d'antécédent personnel ou familial de cancer du sein. Parlez-en à l'équipe qui vous suit ; les formules sans phyto-œstrogènes ni actée à grappes sont signalées dans notre classement.",
+          "C'est déconseillé : les compléments de phyto-œstrogènes sont déconseillés en cas d'antécédent personnel ou familial de cancer du sein. Parlez-en à l'équipe qui vous suit ; les formules sans phyto-œstrogènes ni actée à grappes, comme [Sérélys Meno](/avis/serelys-meno/) ou [Manhaé](/avis/manhae-menopause/), sont signalées dans notre classement.",
         ],
       },
       {
         question: "Quelle différence avec Ménophytea Silhouette Ventre Plat ?",
         paragraphes: [
-          "Ce sont deux produits différents de la même marque. Ménophytea Bouffées de chaleur vise les bouffées de chaleur avec du lin, du houblon et du kudzu. Silhouette Ventre Plat vise le ventre avec du charbon, des fibres, un probiotique et de la caféine ; nous l'analysons dans une page à part.",
+          "Ce sont deux produits différents de la même marque. Ménophytea Bouffées de chaleur vise les bouffées de chaleur avec du lin, du houblon et du kudzu. Silhouette Ventre Plat vise le ventre avec du charbon, des fibres, un probiotique et de la caféine ; nous l'analysons dans [notre avis sur Ménophytea Silhouette Ventre Plat](/avis/menophytea-ventre-plat/).",
         ],
       },
       {
@@ -482,7 +500,7 @@ export const avis: Avis[] = [
     verdict: (p, total) => [
       `Valebio Complexe Ménopause obtient ${p.note}/10 et se classe ${rangLong(p)} sur ${total} dans notre comparatif. Sa note tient à une étiquette qui affiche la dose de chaque actif ; elle n'a aucune allégation de santé autorisée.`,
       "Son actif principal est un extrait de pollen, mais pas celui des essais cliniques : les études sur le pollen et les bouffées de chaleur portent sur un extrait précis, à 320 mg par jour. La bêta-alanine ne fait pas mieux qu'un placebo selon la Haute Autorité de santé, qui l'a évaluée comme médicament à une dose double. Le tryptophane, à 20 mg, n'a pas d'essai chez des femmes ménopausées.",
-      "La fiche la déconseille sous antidépresseurs ou triptans et en cas d'épilepsie. Si l'extrait de pollen vous intéresse, Sérélys Meno contient celui des essais, à leur dose, et coûte moins cher par jour au dernier relevé.",
+      "La fiche la déconseille sous antidépresseurs ou triptans et en cas d'épilepsie. Si l'extrait de pollen vous intéresse, [Sérélys Meno](/avis/serelys-meno/) contient celui des essais, à leur dose, et coûte moins cher par jour au dernier relevé.",
     ],
     pourQui: [
       "Vous voulez une formule sans phyto-œstrogènes ni actée à grappes",
@@ -533,7 +551,7 @@ export const avis: Avis[] = [
     verdict: (p, total) => [
       `Circles Meno obtient ${p.note}/10 et se classe ${rangLong(p)} sur ${total} dans notre comparatif. Son actif principal vise l'humeur plutôt que les bouffées de chaleur : 30 mg de safran par jour, la dose des essais.`,
       "Dans deux essais (86 et 60 femmes), le safran a réduit les symptômes psychologiques face au placebo. Sur les bouffées de chaleur, les deux mêmes essais se contredisent. Le magnésium, le tryptophane et la vitamine B6 ne sont pas à des doses étudiées sur les symptômes de la ménopause.",
-      "La formule ne contient ni phyto-œstrogènes ni actée à grappes, mais elle est déconseillée sous antidépresseurs, pendant la grossesse et l'allaitement, et sa vitamine D3 est dosée à dix fois l'apport de référence. Si votre gêne principale est le moral ou l'irritabilité, c'est la formule du classement qui a les meilleures preuves : le safran est le seul actif classé au niveau B sur l'humeur dans notre base.",
+      "La formule ne contient ni phyto-œstrogènes ni actée à grappes, mais elle est déconseillée sous antidépresseurs, pendant la grossesse et l'allaitement, et sa vitamine D3 est dosée à dix fois l'apport de référence. Si votre gêne principale est le moral ou l'irritabilité, c'est la formule du classement qui a les meilleures preuves : le [safran](/actifs/safran/) est le seul actif classé au niveau B sur l'humeur dans notre base.",
     ],
     pourQui: [
       "Votre gêne principale est le moral, l'irritabilité ou l'anxiété",

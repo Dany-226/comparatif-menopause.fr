@@ -5,7 +5,7 @@ export const site = {
   description:
     "Comparatifs de compléments alimentaires pour la ménopause, classés sur la transparence, les preuves, le prix par jour et les précautions d'emploi.",
   /** Date de la dernière mise à jour éditoriale, au format AAAA-MM-JJ. */
-  majLe: "2026-11-02",
+  majLe: "2026-11-11",
   /**
    * Signature des pages : le site, pas une personne. Aucun nom de personne
    * n'apparaît sur le site (choix de l'éditeur) : le directeur de la
@@ -21,6 +21,8 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
+  { date: "2026-11-11", texte: "Nouvelle page qui regroupe tous nos avis ; liens entre les avis des formules qui se comparent." },
+  { date: "2026-11-09", texte: "Cinq nouveaux avis détaillés : Circles Meno, Feminabiane Méno'Confort, Phyto Soya Ménopause, Ménophytea Bouffées de chaleur et Valebio Complexe Ménopause." },
   { date: "2026-11-07", texte: "Nouvelle page sur la prise de poids à la ménopause ; avis détaillés sur Sérélys Meno et Ymea Ménopause Ventre Plat." },
   { date: "2026-11-02", texte: "Nouvelle page d'information sur le ventre gonflé et avis détaillé sur Ménophytea Silhouette Ventre Plat." },
   { date: "2026-11-02", texte: "Nouveau comparatif : compléments pour le ventre gonflé, six formules et quatre lignes de preuve sur les ballonnements." },
@@ -102,6 +104,13 @@ export const pagesReference: PageSite[] = [
     titre: "Le tableau des preuves",
     court: "Les preuves",
     resume: "Le niveau de preuve de chaque actif, symptôme par symptôme, avec ses sources.",
+    publiee: true,
+  },
+  {
+    chemin: "/avis/",
+    titre: "Nos avis sur les compléments ménopause",
+    court: "Les avis",
+    resume: "Une page par formule : composition face aux études, note, prix par jour et précautions.",
     publiee: true,
   },
 ];
