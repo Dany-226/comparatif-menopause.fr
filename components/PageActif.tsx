@@ -31,7 +31,12 @@ export function PageActif({ id }: { id: string }) {
   const idsSources = [...new Set([...lignes.flatMap((l) => l.sources), ...(actif.sourcesVigilance ?? [])])];
   const adresse = `${site.url}${cheminActif(id)}`;
   const verifieLe = lignes.map((l) => l.verifieLe).sort().reverse()[0];
-  const voisins = actifsAvecPage.filter((a) => a !== id && lignesActif(a).some((l) => l.symptome === meilleure.symptome)).slice(0, 6);
+  // Tous les actifs étudiés sur les mêmes symptômes, sans plafond : un plafond coupait toujours les mêmes
+  // (la fin de l'ordre alphabétique) et les laissait presque sans lien entrant.
+  const symptomesEtudies = [...new Set(lignes.map((l) => l.symptome))];
+  const voisins = actifsAvecPage.filter(
+    (a) => a !== id && lignesActif(a).some((l) => symptomesEtudies.includes(l.symptome)),
+  );
 
   const questions: Question[] = [
     {
@@ -259,14 +264,16 @@ export function PageActif({ id }: { id: string }) {
 
         {voisins.length > 0 && (
           <section className="flex flex-col gap-3">
-            <h2 className="titre-3">Autres actifs étudiés · {symptomes[meilleure.symptome]}</h2>
+            <h2 className="titre-3">
+              Autres actifs étudiés · {symptomesEtudies.map((x) => symptomes[x].toLowerCase()).join(", ")}
+            </h2>
             <div className="flex flex-wrap gap-2">
               {voisins.map((v) => (
                 <Link key={v} href={cheminActif(v)} className="rounded-full border border-trait bg-white px-4 py-2 text-[15px] hover:bg-sauge">
                   {actifs[v].nom}
                 </Link>
               ))}
-              <Link href="/preuves-complements-menopause/" className="rounded-full bg-foret px-4 py-2 text-[15px] text-white">
+              <Link href="/actifs/" className="rounded-full bg-foret px-4 py-2 text-[15px] text-white">
                 Tous les actifs
               </Link>
             </div>

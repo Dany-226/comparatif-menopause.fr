@@ -21,7 +21,7 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
-  { date: "2026-11-11", texte: "Nouvelle page qui regroupe tous nos avis ; liens entre les avis des formules qui se comparent." },
+  { date: "2026-11-11", texte: "Nouvelles pages qui regroupent tous nos avis et tous les actifs étudiés ; liens entre les avis des formules qui se comparent." },
   { date: "2026-11-09", texte: "Cinq nouveaux avis détaillés : Circles Meno, Feminabiane Méno'Confort, Phyto Soya Ménopause, Ménophytea Bouffées de chaleur et Valebio Complexe Ménopause." },
   { date: "2026-11-07", texte: "Nouvelle page sur la prise de poids à la ménopause ; avis détaillés sur Sérélys Meno et Ymea Ménopause Ventre Plat." },
   { date: "2026-11-02", texte: "Nouvelle page d'information sur le ventre gonflé et avis détaillé sur Ménophytea Silhouette Ventre Plat." },
@@ -104,6 +104,13 @@ export const pagesReference: PageSite[] = [
     titre: "Le tableau des preuves",
     court: "Les preuves",
     resume: "Le niveau de preuve de chaque actif, symptôme par symptôme, avec ses sources.",
+    publiee: true,
+  },
+  {
+    chemin: "/actifs/",
+    titre: "Les actifs des compléments ménopause",
+    court: "Les actifs",
+    resume: "Chaque ingrédient, son niveau de preuve par symptôme et la dose des études.",
     publiee: true,
   },
   {

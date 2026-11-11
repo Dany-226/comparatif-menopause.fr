@@ -48,6 +48,11 @@ export default function Page() {
         titre="Compléments pour la ménopause : le tableau des preuves"
         chapo={`${nombreActifs} actifs, ${preuves.length} lignes, ${toutes.length} sources. Pour chaque actif et chaque symptôme : ce que montrent les essais, à quelle dose, et ce qu'en disent les autorités de santé.`}
       />
+      <p className="conteneur -mt-4 pb-6 text-[17px] md:-mt-6">
+        <Link href="/actifs/" className="lien">
+          Voir la page de chaque actif, classée par symptôme
+        </Link>
+      </p>
 
       <div className="conteneur flex flex-col gap-12 md:gap-16">
         <section className="grid gap-5 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-6">
