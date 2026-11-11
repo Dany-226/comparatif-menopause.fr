@@ -36,5 +36,6 @@ export const photosProduits: Record<string, PhotoProduit> = {
   "ymea-menopause-ventre-plat": { alt: "Boîte d'Ymea Ménopause Ventre Plat", origine: "marchand", credit: "Visuel de la fiche produit, Pharma GDD, novembre 2026" },
   "menophytea-silhouette-ventre-plat": { alt: "Boîte de Ménophytea Silhouette Ventre Plat", origine: "marchand", credit: "Visuel de la fiche produit, Redcare Pharmacie, novembre 2026" },
   "terravita-ventre-plat": { alt: "Pilulier de Terravita Ventre Plat", origine: "marchand", credit: "Visuel de la fiche produit, site de la marque Terravita, novembre 2026" },
+  "kosbiotic-slim-my-body": { alt: "Boîte de Kosbiotic Slim My Body", origine: "marchand", credit: "Visuel de la fiche produit, site de la marque Kosbiotic, novembre 2026" },
   "noobiotik-probio-slim": { alt: "Pilulier de Noobiotik Probiotiques Minceur", origine: "marchand", credit: "Visuel de la fiche produit, site de la marque Noobiotik, novembre 2026" },
 };
