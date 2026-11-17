@@ -60,6 +60,11 @@ export const photos = {
     hauteur: 1024,
     alt: "Femme d'une cinquantaine d'années assise sur un canapé, les deux mains posées sur son ventre gonflé",
   },
+  "12-chalazion-compresse": {
+    largeur: 1536,
+    hauteur: 1024,
+    alt: "Femme d'une cinquantaine d'années, les yeux fermés, qui tient une compresse tiède sur un œil",
+  },
 } satisfies Record<string, PhotoSite>;
 
 export type NomPhoto = keyof typeof photos;

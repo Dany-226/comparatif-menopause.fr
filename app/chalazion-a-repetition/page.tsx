@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Faq, type Question } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { Photo } from "@/components/Photo";
 import { pagesReference, site } from "@/data/site";
 import { dateLongue } from "@/lib/format";
 import { meta } from "@/lib/meta";
@@ -312,6 +313,7 @@ export default function Page() {
               author: { "@type": "Organization", name: site.signature, url: site.url },
               publisher: { "@type": "Organization", name: site.editeur },
               mainEntityOfPage: adresse,
+              image: `${site.url}/photos/12-chalazion-compresse-1600.webp`,
               citation: Object.values(src).map((s) => s.url),
             },
             {
@@ -609,7 +611,8 @@ export default function Page() {
               ne fait pas mieux que les compresses seules dans la revue de 2025. <Cite s="park2025" />
             </p>
           </div>
-          <aside className="flex flex-col gap-3 rounded-[24px] bg-sauge p-6 md:p-8">
+          <aside className="grid items-center gap-6 rounded-[24px] bg-sauge p-6 md:p-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10">
+            <div className="flex min-w-0 flex-col gap-3">
             <h3 className="titre-3">Le protocole des compresses chaudes</h3>
             <ol className="flex max-w-[46em] list-decimal flex-col gap-2 pl-5 text-[17px]">
               <li>Chauffez un gant de toilette propre à l'eau chaude, supportable sur l'intérieur du poignet, ou un masque chauffant pour les yeux.</li>
@@ -618,6 +621,10 @@ export default function Page() {
               <li>Nettoyez le bord des paupières avec une lingette ou une solution dédiée.</li>
               <li>Répétez 2 à 4 fois par jour pendant la crise, puis une fois par jour si les chalazions reviennent.</li>
             </ol>
+            </div>
+            <div className="relative aspect-[3/2] overflow-hidden rounded-[20px] bg-photo">
+              <Photo nom="12-chalazion-compresse" sizes="(min-width: 1024px) 480px, 100vw" position="30% 40%" className="absolute inset-0" />
+            </div>
           </aside>
         </section>
 
