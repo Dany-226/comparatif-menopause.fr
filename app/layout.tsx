@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/hanken-grotesk";
 import "./globals.css";
+import { BandeSujets } from "@/components/BandeSujets";
 import { Entete } from "@/components/Entete";
 import { PiedDePage } from "@/components/PiedDePage";
 import { MesureClics } from "@/components/MesureClics";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Aller au contenu
         </a>
         <Entete />
+        <BandeSujets />
         <main id="contenu">{children}</main>
         <PiedDePage />
         <MesureClics />

@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import { produits } from "../data/produits.ts";
 import { photosProduits } from "../data/photos-produits.ts";
 import { actifs, preuves, sources } from "../data/preuves.ts";
-import { comparatifs, legal, pagesInstitutionnelles, pagesReference } from "../data/site.ts";
+import { comparatifs, legal, pagesInstitutionnelles, pagesReference, sujets } from "../data/site.ts";
 import { ageReleve } from "../lib/score.ts";
 
 const racine = fileURLToPath(new URL("..", import.meta.url));
@@ -125,6 +125,14 @@ for (const p of [...comparatifs, ...pagesReference, ...pagesInstitutionnelles]) 
   const fichier = join(racine, "app", p.chemin, "page.tsx");
   if (p.publiee && !existsSync(fichier)) erreurs.push(`${p.chemin} est marquée publiée mais n'a pas de page`);
   if (!p.publiee && existsSync(fichier)) erreurs.push(`${p.chemin} a une page mais n'est pas marquée publiée`);
+}
+
+// 5 ter. Sujets : chaque page rangée dans un sujet est déclarée dans data/site.ts.
+const declarees = new Set([...comparatifs, ...pagesReference, ...pagesInstitutionnelles].map((p) => p.chemin));
+for (const s of sujets) {
+  for (const p of s.pages) {
+    if (!declarees.has(p.chemin)) erreurs.push(`Sujet « ${s.nom} » : la page ${p.chemin} n'est pas déclarée`);
+  }
 }
 
 // 5 bis. Photos de produits : fichiers présents, origine admise, crédit renseigné.

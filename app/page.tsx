@@ -10,7 +10,7 @@ import { SectionPreuves } from "@/components/SectionPreuves";
 import { TableauComparatif } from "@/components/TableauComparatif";
 import { produits } from "@/data/produits";
 import { sources } from "@/data/preuves";
-import { comparatifs, pagesInstitutionnelles, pagesReference, pilier, site } from "@/data/site";
+import { pilier, site, sujetsPublies } from "@/data/site";
 import { dateLongue, prix } from "@/lib/format";
 import { meta } from "@/lib/meta";
 import { classer, grille, noteMax } from "@/lib/score";
@@ -28,12 +28,6 @@ const chiffres = [
   { valeur: "51 ans", texte: "l'âge moyen de la ménopause" },
 ];
 
-/** Les cartes « Nos comparatifs » : seules les pages publiées, jamais d'annonce « en préparation ». */
-const cartes = [
-  ...comparatifs.filter((c) => c.publiee),
-  ...pagesReference.filter((p) => p.publiee),
-  ...pagesInstitutionnelles.filter((p) => p.publiee && p.chemin === "/comment-nous-classons/"),
-].slice(0, 3);
 
 export default function Accueil() {
   const classes = classer(produits, "confort");
@@ -161,6 +155,49 @@ export default function Accueil() {
         </Link>
       </section>
 
+      <section aria-labelledby="par-sujet" className="conteneur flex flex-col gap-6 pb-12 md:gap-8 md:pb-[72px]">
+        <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
+          <h2 id="par-sujet" className="titre-2">
+            Par sujet
+          </h2>
+          <p className="max-w-[30em] text-[16px] text-discret md:text-[17px]">Mis à jour le {dateLongue(site.majLe)}.</p>
+        </div>
+        <div className="grid gap-4 md:gap-6 lg:grid-cols-3">
+          {sujetsPublies.map((s, i) => (
+            <div
+              key={s.id}
+              className={`flex min-h-[300px] flex-col justify-between gap-6 rounded-3xl p-6 md:p-7 ${
+                i === 0 ? "sombre bg-foret text-white" : "border border-trait bg-white"
+              }`}
+            >
+              <div className="flex flex-col gap-4">
+                <div className={`etiquette ${i === 0 ? "text-citron" : ""}`}>{s.nom}</div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="titre-3">{s.titre}</h3>
+                  <p className={`text-[16px] ${i === 0 ? "text-sauge" : "text-doux"}`}>{s.phrase}</p>
+                </div>
+              </div>
+              <ul className="flex flex-col">
+                {s.pages.map((p) => (
+                  <li key={p.chemin} className={`border-t ${i === 0 ? "border-foret-trait" : "border-trait"}`}>
+                    <Link href={p.chemin} className="group flex min-h-[48px] items-center justify-between gap-4 py-2 text-[16px] font-medium">
+                      {p.libelle}
+                      <span
+                        className={`flex size-8 shrink-0 items-center justify-center rounded-full transition-transform group-hover:translate-x-1 ${
+                          i === 0 ? "bg-citron" : "bg-encre"
+                        }`}
+                      >
+                        <FlecheDroite taille={14} couleur={i === 0 ? "#14241B" : "#FFFFFF"} />
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section aria-label="La ménopause en chiffres" className="border-y border-trait bg-sauge">
         <div className="conteneur flex flex-col gap-5 py-9 md:py-12">
           <dl className="grid gap-6 md:grid-cols-3 md:gap-10">
@@ -177,44 +214,6 @@ export default function Accueil() {
               Haute Autorité de santé, septembre 2025
             </a>
           </p>
-        </div>
-      </section>
-
-      <section className="conteneur flex flex-col gap-6 pt-12 md:gap-8 md:pt-[80px]">
-        <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
-          <h2 className="titre-2">Nos comparatifs</h2>
-          <p className="max-w-[30em] text-[16px] text-discret md:text-[17px]">
-            Mis à jour le {dateLongue(site.majLe)}.
-          </p>
-        </div>
-        <div className="grid gap-4 md:gap-6 lg:grid-cols-3">
-          {cartes.map((c, i) => (
-            <Link
-              key={c.chemin}
-              href={c.chemin}
-              className={`group flex min-h-[260px] flex-col justify-between gap-6 rounded-3xl p-6 md:p-7 ${
-                i === 0 ? "sombre bg-foret text-white" : "border border-trait bg-white"
-              }`}
-            >
-              <div className={`etiquette ${i === 0 ? "text-citron" : ""}`}>{c.court}</div>
-              <div className="flex flex-col gap-2">
-                <h3 className="titre-3">{c.titre}</h3>
-                <p className={`text-[16px] ${i === 0 ? "text-sauge" : "text-doux"}`}>{c.resume}</p>
-              </div>
-              <div className="flex items-center justify-between gap-4">
-                <span className={`text-[15px] ${i === 0 ? "text-pale" : "text-discret"}`}>
-                  {c.usage ? `${classer(produits, c.usage).length} formules comparées` : "Lire la page"}
-                </span>
-                <span
-                  className={`flex size-12 items-center justify-center rounded-full transition-transform group-hover:translate-x-1 ${
-                    i === 0 ? "bg-citron" : "bg-encre"
-                  }`}
-                >
-                  <FlecheDroite couleur={i === 0 ? "#14241B" : "#FFFFFF"} />
-                </span>
-              </div>
-            </Link>
-          ))}
         </div>
       </section>
 

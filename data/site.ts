@@ -162,3 +162,67 @@ export const pagesInstitutionnelles: PageSite[] = [
     publiee: true,
   },
 ];
+
+/**
+ * Les sujets du site : la bande sous le menu et les cartes de l'accueil en découlent.
+ * Pour ranger une nouvelle page, ajoutez-la à la liste « pages » de son sujet ;
+ * une page non publiée est ignorée. La première page de la liste est la porte d'entrée du sujet.
+ */
+export type Sujet = {
+  id: string;
+  nom: string;
+  titre: string;
+  phrase: string;
+  pages: { chemin: string; libelle: string }[];
+  /** Chemins qui appartiennent au sujet sans être listés (pages d'avis, fiches d'actifs). */
+  prefixes?: string[];
+};
+
+export const sujets: Sujet[] = [
+  {
+    id: "complements",
+    nom: "Compléments",
+    titre: "Les compléments, classés sur les preuves",
+    phrase: "Le classement des formules, nos avis détaillés et le niveau de preuve de chaque actif.",
+    pages: [
+      { chemin: pilier, libelle: "Le comparatif des compléments" },
+      { chemin: "/avis/", libelle: "Nos avis, formule par formule" },
+      { chemin: "/actifs/", libelle: "Les actifs et leurs doses" },
+      { chemin: "/preuves-complements-menopause/", libelle: "Le tableau des preuves" },
+    ],
+    prefixes: ["/avis/", "/actifs/"],
+  },
+  {
+    id: "ventre",
+    nom: "Ventre et poids",
+    titre: "Ventre gonflé et prise de poids",
+    phrase: "Gaz ou graisse, ce qui a fait ses preuves, et ce que valent les formules « ventre plat ».",
+    pages: [
+      { chemin: "/ventre-gonfle-menopause/", libelle: "Ventre gonflé : causes et solutions" },
+      { chemin: "/complement-alimentaire-ventre-gonfle-menopause/", libelle: "Compléments pour le ventre gonflé" },
+      { chemin: "/complement-alimentaire-menopause-prise-de-poids/", libelle: "Compléments et prise de poids" },
+    ],
+  },
+  {
+    id: "yeux",
+    nom: "Yeux",
+    titre: "Yeux secs, paupières, vision",
+    phrase: "Ce qui vient des hormones, ce qui vient de l'âge, et le chalazion qui revient.",
+    pages: [
+      { chemin: "/menopause-yeux/", libelle: "Ménopause et yeux" },
+      { chemin: "/chalazion-a-repetition/", libelle: "Chalazion à répétition" },
+    ],
+  },
+];
+
+const publiees = new Set([...comparatifs, ...pagesReference, ...pagesInstitutionnelles].filter((p) => p.publiee).map((p) => p.chemin));
+
+/** Les sujets avec leurs seules pages publiées ; un sujet sans page publiée disparaît. */
+export const sujetsPublies = sujets
+  .map((s) => ({ ...s, pages: s.pages.filter((p) => publiees.has(p.chemin)) }))
+  .filter((s) => s.pages.length > 0);
+
+/** Le sujet d'une adresse, pour signaler la pastille active. */
+export function sujetDe(chemin: string): string | undefined {
+  return sujetsPublies.find((s) => s.pages.some((p) => p.chemin === chemin) || s.prefixes?.some((x) => chemin.startsWith(x)))?.id;
+}
