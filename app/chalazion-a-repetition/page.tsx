@@ -478,6 +478,8 @@ export default function Page() {
             Un point souvent mal compris : le traitement hormonal de la ménopause ne protège pas les paupières. Dans une
             étude qui a suivi plus de 25 000 femmes ménopausées, il était même associé à davantage de sécheresse
             oculaire. <Cite s="schaumberg2001" />
+            Tous les changements des yeux à cette période :{" "}
+            <Link href="/menopause-yeux/">ménopause et yeux</Link>.
           </p>
         </section>
 

@@ -21,6 +21,7 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
+  { date: "2026-11-17", texte: "Nouvelle page d'information : ménopause et yeux (sécheresse oculaire, paupières, vision floue, traitement hormonal)." },
   { date: "2026-11-17", texte: "Nouvelle page d'information sur le chalazion à répétition : causes, durée, traitements chiffrés et signes d'alerte." },
   { date: "2026-11-11", texte: "Nouvelles pages qui regroupent tous nos avis et tous les actifs étudiés ; liens entre les avis des formules qui se comparent." },
   { date: "2026-11-09", texte: "Cinq nouveaux avis détaillés : Circles Meno, Feminabiane Méno'Confort, Phyto Soya Ménopause, Ménophytea Bouffées de chaleur et Valebio Complexe Ménopause." },
@@ -93,6 +94,13 @@ export const comparatifs: PageSite[] = [
 
 /** Pages de référence : du contenu de fond, cité par les comparatifs. */
 export const pagesReference: PageSite[] = [
+  {
+    chemin: "/menopause-yeux/",
+    titre: "Ménopause et yeux : sécheresse, chalazion, vision floue",
+    court: "Ménopause et yeux",
+    resume: "Ce qui vient des hormones, ce qui vient de l'âge, ce qui marche et quand consulter.",
+    publiee: true,
+  },
   {
     chemin: "/chalazion-a-repetition/",
     titre: "Chalazion à répétition : causes, durée et traitements",
