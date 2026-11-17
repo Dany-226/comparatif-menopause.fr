@@ -5,7 +5,7 @@ export const site = {
   description:
     "Comparatifs de compléments alimentaires pour la ménopause, classés sur la transparence, les preuves, le prix par jour et les précautions d'emploi.",
   /** Date de la dernière mise à jour éditoriale, au format AAAA-MM-JJ. */
-  majLe: "2026-11-11",
+  majLe: "2026-11-17",
   /**
    * Signature des pages : le site, pas une personne. Aucun nom de personne
    * n'apparaît sur le site (choix de l'éditeur) : le directeur de la
@@ -21,6 +21,7 @@ export const site = {
 
 /** Historique des mises à jour, la plus récente d'abord. Affiché en bas des comparatifs. */
 export const historique: { date: string; texte: string }[] = [
+  { date: "2026-11-17", texte: "Nouvelle page d'information sur le chalazion à répétition : causes, durée, traitements chiffrés et signes d'alerte." },
   { date: "2026-11-11", texte: "Nouvelles pages qui regroupent tous nos avis et tous les actifs étudiés ; liens entre les avis des formules qui se comparent." },
   { date: "2026-11-09", texte: "Cinq nouveaux avis détaillés : Circles Meno, Feminabiane Méno'Confort, Phyto Soya Ménopause, Ménophytea Bouffées de chaleur et Valebio Complexe Ménopause." },
   { date: "2026-11-07", texte: "Nouvelle page sur la prise de poids à la ménopause ; avis détaillés sur Sérélys Meno et Ymea Ménopause Ventre Plat." },
@@ -92,6 +93,13 @@ export const comparatifs: PageSite[] = [
 
 /** Pages de référence : du contenu de fond, cité par les comparatifs. */
 export const pagesReference: PageSite[] = [
+  {
+    chemin: "/chalazion-a-repetition/",
+    titre: "Chalazion à répétition : causes, durée et traitements",
+    court: "Chalazion",
+    resume: "Pourquoi un chalazion revient, ce que valent les traitements, chiffres à l'appui, et quand demander une biopsie.",
+    publiee: true,
+  },
   {
     chemin: "/ventre-gonfle-menopause/",
     titre: "Ventre gonflé à la ménopause : causes, solutions, quand consulter",
