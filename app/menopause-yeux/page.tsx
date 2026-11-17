@@ -203,7 +203,7 @@ export default function Page() {
               author: { "@type": "Organization", name: site.signature, url: site.url },
               publisher: { "@type": "Organization", name: site.editeur },
               mainEntityOfPage: adresse,
-              image: `${site.url}/photos/02-pilier-yeux-fermes-1600.webp`,
+              image: `${site.url}/photos/13-menopause-yeux-lecture-1600.webp`,
               citation: Object.values(src).map((s) => s.url),
             },
             {
@@ -237,7 +237,7 @@ export default function Page() {
             </p>
           </div>
           <div className="relative aspect-[16/11] overflow-hidden rounded-[22px] bg-photo md:rounded-[28px]">
-            <Photo nom="02-pilier-yeux-fermes" sizes="(min-width: 1024px) 460px, 100vw" prioritaire position="35% 40%" className="absolute inset-0" />
+            <Photo nom="13-menopause-yeux-lecture" sizes="(min-width: 1024px) 460px, 100vw" prioritaire position="40% 35%" className="absolute inset-0" />
           </div>
         </div>
         <nav aria-label="Sommaire" className="flex flex-wrap gap-2">

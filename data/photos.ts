@@ -65,6 +65,11 @@ export const photos = {
     hauteur: 1024,
     alt: "Femme d'une cinquantaine d'années, les yeux fermés, qui tient une compresse tiède sur un œil",
   },
+  "13-menopause-yeux-lecture": {
+    largeur: 1536,
+    hauteur: 1024,
+    alt: "Femme d'une cinquantaine d'années qui plisse les yeux en éloignant un livre pour le lire",
+  },
 } satisfies Record<string, PhotoSite>;
 
 export type NomPhoto = keyof typeof photos;
