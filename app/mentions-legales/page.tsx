@@ -39,6 +39,11 @@ export default function Page() {
             nominative et ne dépose aucun cookie.
           </p>
           <p>
+            La fréquentation est mesurée avec Ahrefs Web Analytics, un outil sans cookie ni identifiant persistant :
+            il compte les pages vues, la provenance des visites et les clics, sous forme agrégée, et ne conserve pas
+            l'adresse IP des visiteurs.
+          </p>
+          <p>
             Les liens vers les marchands ouvrent des sites tiers. Le marchand ou sa régie d'affiliation peut y déposer
             un traceur pour attribuer la visite. Ces traitements relèvent de leur propre politique de confidentialité.
           </p>

@@ -27,6 +27,10 @@ export const viewport: Viewport = { themeColor: "#F2F5EA" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
+      <head>
+        {/* Mesure d'audience Ahrefs Web Analytics : sans cookie ni identifiant persistant. */}
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="po4EBFRpTyNSTmHdBmyLFA" async />
+      </head>
       <body>
         <a
           href="#contenu"
